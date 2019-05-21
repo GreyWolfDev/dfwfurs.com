@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Author" content="Para [https://t.me/TheRealPara]" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewData["Title"] - DFW.Furs.Web</title>
+    <meta property="og:site_name" content="DFW FURS" />
+    <meta property="og:title" content="DFW FURS" />
+    <meta property="og:description" content="Numerous Telegram groups exist for our local community covering a multitude of different topics - ranging from specific meet chats, general chats, and even fitness! Chances are - there&#039;s a group for..." />
+    <!-- TODO: Update these links -->
+    <meta property="og:image" content="https://www.dfwfurs.com/uploads/1/1/4/9/114928357/editor/26287413119-2b57e7d182-k.jpg?1513296840" />
+    <meta property="og:image" content="https://www.dfwfurs.com/uploads/1/1/4/9/114928357/38271746094-86b02eddd9-k_orig.jpg" />
+    <meta property="og:image" content="https://www.dfwfurs.com/uploads/1/1/4/9/114928357/editor/37994476125-49b478b7b4-k.jpg?1513295346" />
+    <meta property="og:image" content="https://www.dfwfurs.com/uploads/1/1/4/9/114928357/published/24123373937-4f0b2c202e-k.jpg?1513295335" />
+    <meta property="og:image" content="https://www.dfwfurs.com/uploads/1/1/4/9/114928357/published/24805469348-23fad1fc01-k.jpg?1513295355" />
+    <meta property="og:image" content="https://www.dfwfurs.com/uploads/1/1/4/9/114928357/published/imageedit-8-8303020279.gif?1513295932" />
+    <meta property="og:image" content="https://www.dfwfurs.com/uploads/1/1/4/9/114928357/published/imageedit-6-3399609223.gif?1513295937" />
+
+    @*<link rel="stylesheet" href="~/css/main_style.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/social-icons.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/fancybox.css" />
+
+        <link href='//fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+
+        <link href='//fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+        <link href='//fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+        <link href='//fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+        <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css' />*@
+
+    <!-- mobile settings -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <!-- WEB FONTS : use %7C instead of | (pipe) -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+    <!-- CORE CSS -->
+    <link href="/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- THEME CSS -->
+    <link href="/css/essentials.css" rel="stylesheet" type="text/css" />
+    <link href="/css/layout.css" rel="stylesheet" type="text/css" />
+
+    <!-- PAGE LEVEL SCRIPTS -->
+    <link href="/css/header-1.css" rel="stylesheet" type="text/css" />
+    <link href="/css/color_scheme/darkblue.css" rel="stylesheet" type="text/css" id="color_scheme" />
+    <!-- REVOLUTION SLIDER -->
+    <link href="/plugins/slider.revolution/css/extralayers.css" rel="stylesheet" type="text/css" />
+    <link href="/plugins/slider.revolution/css/settings.css" rel="stylesheet" type="text/css" />
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        @*<link rel="stylesheet" href="~/css/site.css" />*@
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        @*<link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />*@
+    </environment>
+</head>
+
+
+<body class="smoothscroll enable-animation">
+    @*<nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">DFW.Furs.Web</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>*@
+    <div class="wrapper" id="wrapper">
+        <!--
+        AVAILABLE HEADER CLASSES
+
+        Default nav height: 96px
+        .header-md 		= 70px nav height
+        .header-sm 		= 60px nav height
+
+        .b-0 		= remove bottom border (only with transparent use)
+        .transparent	= transparent header
+        .translucent	= translucent header
+        .sticky			= sticky header
+        .static			= static header
+        .dark			= dark header
+        .bottom			= header on bottom
+        .scroll			= reveal on scroll up (should be not used with topBar)
+
+        shadow-before-1 = shadow 1 header top
+        shadow-after-1 	= shadow 1 header bottom
+        shadow-before-2 = shadow 2 header top
+        shadow-after-2 	= shadow 2 header bottom
+        shadow-before-3 = shadow 3 header top
+        shadow-after-3 	= shadow 3 header bottom
+
+        .clearfix		= required for mobile menu, do not remove!
+
+        Example Usage:  class="clearfix sticky header-sm transparent b-0"
+    -->
+
+        <div id="header" class="navbar-toggleable-md sticky transparent clearfix">
+            <header id="topNav" class="">
+                <div class="container">
+                    <!-- Mobile Menu Button -->
+                    <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="logo float-left navbar-brand" style="font-size: xx-large;line-height:50px">DFW FURS</a>
+
+                    <div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark" data-switch-default="submenu-dark" data-switch-scroll="">
+                        <nav class="nav-main">
+                            <ul id="topMain" class="nav nav-pills nav-main">
+                                <li id="active">
+                                    <a asp-area="" asp-controller="Home" asp-action="Index" class="">HOME</a>
+                                </li>
+                                <li id="active">
+                                    <a asp-area="" asp-controller="Home" asp-action="About" class="">ABOUT US</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#">
+                                        EVENTS
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a asp-area="" asp-controller="Events" asp-action="Calendar" class="">CALENDAR</a></li>
+                                        <li><a asp-area="" asp-controller="Events" asp-action="Descriptions" class="">EVENT DESCRIPTIONS</a></li>
+                                        <li><a asp-area="" asp-controller="Events" asp-action="Organizers" class="">ORGANIZERS</a></li>
+                                        <li><a asp-area="" asp-controller="Events" asp-action="Photos" class="">PHOTO GALLERY</a></li>
+                                    </ul>
+                                </li>
+                                <li id="active">
+                                    <a asp-area="" asp-controller="Home" asp-action="Connect" class="">CONNECT</a>
+                                </li>
+                                <li id="active">
+                                    <a asp-area="" asp-controller="Blog" asp-action="Index" class="">BLOG</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#">
+                                        RESOURCES
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a asp-area="" asp-controller="Resources" asp-action="Help" class="">GETTING HELP</a></li>
+                                        <li><a asp-area="" asp-controller="Resources" asp-action="WhatIsFurry" class="">WHAT IS THE FURRY FANDOM?</a></li>
+                                        <li><a asp-area="" asp-controller="Resources" asp-action="ParentFAQ" class="">FAQS FOR PARENTS</a></li>
+                                        <li><a asp-area="" asp-controller="Resources" asp-action="Harassment" class="">ANTI-HARASSMENT POLICY</a></li>
+                                    </ul>
+                                </li>
+                                <li id="active">
+                                    <a asp-area="" asp-controller="Home" asp-action="Contact" class="">CONTACT US</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+        </div>
+        @RenderBody()
+    </div>
+    @*<partial name="_CookieConsentPartial" />*@
+
+    <div class="container body-content">
+        
+        <hr />
+        <footer>
+            <p>&copy; 2019 - DFW Furs</p>
+        </footer>
+    </div>
+    <!-- SCROLL TO TOP -->
+    <a href="#" id="toTop"></a>
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="inner">
+            <span class="loader"></span>
+        </div>
+    </div><!-- /PRELOADER -->
+    <!-- JAVASCRIPT FILES -->
+    <script>var plugin_path = '/plugins/';</script>
+    <script src="/plugins/jquery/jquery-3.3.1.min.js"></script>
+    <script src="/js/scripts.js"></script>
+    <!-- REVOLUTION SLIDER -->
+    <script src="/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="/js/view/demo.revolution_slider.js"></script>
+
+    @*<environment include="Development">
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+        </environment>
+        <environment exclude="Development">
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+            </script>
+            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+            </script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>
+        </environment>*@
+    @*<script src="~/js/custom.js" asp-append-version="true"></script>
+        <script src="~/js/plugins.js" asp-append-version="true"></script>*@
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
