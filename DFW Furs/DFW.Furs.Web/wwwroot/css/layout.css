@@ -50,6 +50,7 @@
 *************************************************** **/
 .round-font {
     font-family: "Montserrat" !important;
+    font-weight: 800;
 }
 
 
@@ -58,6 +59,8 @@
 html, body {
     height: 100%;
     direction: ltr;
+    font-family: "Montserrat" !important;
+    
 }
 
 body {

@@ -5,14 +5,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DFW.Furs.Web.Models;
+using DFW.Furs.Api;
 
 namespace DFW.Furs.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await Telegram.ParseChannel("DFWEvents"));
         }
 
         public IActionResult About()
@@ -38,6 +39,11 @@ namespace DFW.Furs.Web.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Connect()
+        {
+            return View();
         }
     }
 }
