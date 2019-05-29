@@ -52,7 +52,7 @@
 
 #topNav a.logo {
 	height:96px;
-	line-height:96px;
+	line-height:initial;
 	overflow:hidden;
 	display:inline-block;
 }
