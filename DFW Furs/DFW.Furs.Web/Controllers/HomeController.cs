@@ -13,7 +13,7 @@ namespace DFW.Furs.Web.Controllers
     {
         public async Task<IActionResult> Index()
         {
-            return View(await Telegram.ParseChannel("DFWEvents"));
+            return View();
         }
 
         public IActionResult About()

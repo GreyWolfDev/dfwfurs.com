@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model List<DFW.Furs.Api.Models.TgChannelPost>
+
 <!-- REVOLUTION SLIDER -->
 <section id="slider" class="fullwidthbanner-container roundedcorners">
     <!--
@@ -295,7 +295,7 @@
     <div class="container">
 
         <div class="row">
-
+            <!--TODO: make this an ajax request, add models, database -->
             <!-- RIGHT -->
             <div class="col-lg-offset-1 col-lg-8 col-md-9 col-sm-9 order-lg-2 order-md-2 order-sm-2">
 
@@ -304,12 +304,12 @@
                 <!-- news item -->
                 <div class="inews-item">
                     @*<a class="inews-thumbnail" href="#">
-                <span class="inews-sticky font-lato">
-                    <i class="fa fa-bullhorn"></i>
-                    STICKY POST
-                </span>
-                <img class="img-fluid" src="demo_files/images/thematics/music/a1-min.jpg" alt="image">
-            </a>*@
+                            <span class="inews-sticky font-lato">
+                                <i class="fa fa-bullhorn"></i>
+                                STICKY POST
+                            </span>
+                            <img class="img-fluid" src="demo_files/images/thematics/music/a1-min.jpg" alt="image">
+                        </a>*@
 
                     <div class="inews-item-content">
 
@@ -363,12 +363,12 @@
                 <!-- news item -->
                 <div class="inews-item">
                     @*<a class="inews-thumbnail" href="#">
-                <span class="inews-sticky font-lato">
-                    <i class="fa fa-bullhorn"></i>
-                    STICKY POST
-                </span>
-                <img class="img-fluid" src="demo_files/images/thematics/music/a1-min.jpg" alt="image">
-            </a>*@
+                            <span class="inews-sticky font-lato">
+                                <i class="fa fa-bullhorn"></i>
+                                STICKY POST
+                            </span>
+                            <img class="img-fluid" src="demo_files/images/thematics/music/a1-min.jpg" alt="image">
+                        </a>*@
 
                     <div class="inews-item-content">
 
@@ -422,50 +422,39 @@
 
             <!-- LEFT -->
             <div class="col-lg-3 col-md-3 col-sm-3 order-lg-1 order-md-1 order-sm-1">
-
                 <h3 class="mt-8">Telegram Feed</h3>
-
-                <!--
-                    data-php="php/twitter/tweet.php"	- widget php path
-                    data-username="stepofweb"			- twitter username
-                    data-limit="3"						- maximum twwts to load
-
-                    PLEASE NOTE!
-                    php/_cache/ - folder should be writable by the webserver!
-                            - it's used to cache tweets
-                -->
-                <ul class="widget-twitter mb-20">
-                    @foreach (var item in Model.Take(3))
-                    {
-
-                    <li>
-                        <i class="fa fa-telegram"></i><span>
-                            @if (item.PostImage != null)
-                        {
-                            <img src="@item.PostImage" style="width:100%" />
-                        }
-                            @Html.Raw(item.Text)
-                        </span><small><a href="https://t.me/s/@item.Id" target="_blank">@item.Timestamp</a></small>
-                    </li>
-                    }
-
-                    <!--<li>
-                        <i class="fa fa-twitter"></i><span>
-                            Smarty v1.2.1 is live!
-
-                            <a href="https://t.co/j11Ov8OUaj" target="_blank">https://t.co/j11Ov8OUaj</a>
-
-                            Changes
-                            * New: Music... <a href="https://t.co/TEI9ZnoZw0" target="_blank">https://t.co/TEI9ZnoZw0</a>
-                        </span><small><a href="http://twitter.com/stepofweb/statuses/836627399865483265" target="_blank">820 days ago</a></small>
-                    </li>-->
+                <ul class="widget-twitter mb-20" id="telegram">
                 </ul>
-
-
             </div>
 
         </div>
 
     </div>
 </section>
+
+<script>
+    //TODO: Move to .js file
+    $(document).ready(function () {
+        //load telegram posts
+        $.getJSON("/api/Telegram?channel=DFWEvents&total=3", function (data) {
+            $.each(data, function (i, post) {
+                var html = createBlock(post);
+                $("#telegram").append(html);
+            });
+        });
+    });
+
+    function createBlock(post) {
+        var result =
+            '<li>' +
+            '<i class="fa fa-telegram"></i><span>';
+        if (post.postImage !== null) {
+            result += '<img src="' + post.postImage + '" style="width:100%" />';
+        }
+        result += post.text;
+        result += '</span><small><a href="https://t.me/s/' + post.id + '" target="_blank">' + new Date(post.timestamp).toLocaleString() + '</a></small>';
+        result += '</li>';
+        return result;
+    };
+</script>
 <!-- /news -->
