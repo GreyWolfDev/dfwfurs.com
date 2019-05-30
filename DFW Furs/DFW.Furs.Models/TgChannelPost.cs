@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DFW.Furs.Api.Models
+namespace DFW.Furs.Models
 {
-    public class TgChannelPost
+    public struct TgChannelPost
     {
         public long Id { get; set; }
         public string AuthorImage { get; set; }

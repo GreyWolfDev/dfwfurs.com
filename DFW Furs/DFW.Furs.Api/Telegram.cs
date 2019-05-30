@@ -1,4 +1,4 @@
-﻿using DFW.Furs.Api.Models;
+﻿using DFW.Furs.Models;
 using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
@@ -64,6 +64,8 @@ namespace DFW.Furs.Api
                     post.ForwardedFromLink = t.Attributes["href"].Value;
                     post.ForwardedFromName = t.InnerHtml;
                 }
+
+                //TODO: Guess what, you forgot to handle albums. *slapslap*.  Probably stickers and voice too!
                 t = msg.SelectSingleNode("//a[contains(@class, 'tgme_widget_message_photo_wrap')]");
                 if (t != null)
                 {

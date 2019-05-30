@@ -57,6 +57,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DFW.Furs.Api\DFW.Furs.Api.csproj" />
+    <ProjectReference Include="..\DFW.Furs.Models\DFW.Furs.Models.csproj" />
   </ItemGroup>
 
 </Project>
