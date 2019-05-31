@@ -4,14 +4,16 @@ using DFW.Furs.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DFW.Furs.Database.Migrations
 {
     [DbContext(typeof(DFWDbContext))]
-    partial class DFWDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190531161936_UserAuth")]
+    partial class UserAuth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,6 +29,8 @@ namespace DFW.Furs.Database.Migrations
 
                     b.Property<string>("About");
 
+                    b.Property<int?>("EventDescriptionId");
+
                     b.Property<string>("Name");
 
                     b.Property<string>("Photo64");
@@ -37,6 +41,8 @@ namespace DFW.Furs.Database.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("EventDescriptionId");
+
                     b.ToTable("CrewMembers");
                 });
 
@@ -46,13 +52,13 @@ namespace DFW.Furs.Database.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("EventDescriptionId");
+                    b.Property<int?>("DescriptionId");
 
                     b.Property<DateTime>("TimeStamp");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EventDescriptionId");
+                    b.HasIndex("DescriptionId");
 
                     b.ToTable("Events");
                 });
@@ -82,19 +88,6 @@ namespace DFW.Furs.Database.Migrations
                     b.ToTable("EventDescriptions");
                 });
 
-            modelBuilder.Entity("DFW.Furs.Models.EventOrganizer", b =>
-                {
-                    b.Property<int>("CrewMemberId");
-
-                    b.Property<int>("EventDescriptionId");
-
-                    b.HasKey("CrewMemberId", "EventDescriptionId");
-
-                    b.HasIndex("EventDescriptionId");
-
-                    b.ToTable("EventOrganizer");
-                });
-
             modelBuilder.Entity("DFW.Furs.Models.TgUserAuth", b =>
                 {
                     b.Property<int>("id")
@@ -118,25 +111,18 @@ namespace DFW.Furs.Database.Migrations
                     b.ToTable("Authentications");
                 });
 
+            modelBuilder.Entity("DFW.Furs.Models.CrewMember", b =>
+                {
+                    b.HasOne("DFW.Furs.Models.EventDescription")
+                        .WithMany("Organizers")
+                        .HasForeignKey("EventDescriptionId");
+                });
+
             modelBuilder.Entity("DFW.Furs.Models.Event", b =>
                 {
                     b.HasOne("DFW.Furs.Models.EventDescription", "Description")
                         .WithMany("Events")
-                        .HasForeignKey("EventDescriptionId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("DFW.Furs.Models.EventOrganizer", b =>
-                {
-                    b.HasOne("DFW.Furs.Models.CrewMember", "CrewMember")
-                        .WithMany("OrganizedEvents")
-                        .HasForeignKey("CrewMemberId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("DFW.Furs.Models.EventDescription", "EventDescription")
-                        .WithMany("Organizers")
-                        .HasForeignKey("EventDescriptionId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("DescriptionId");
                 });
 #pragma warning restore 612, 618
         }

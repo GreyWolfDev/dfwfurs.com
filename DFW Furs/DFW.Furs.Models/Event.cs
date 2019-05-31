@@ -8,6 +8,7 @@ namespace DFW.Furs.Models
     {
         public int Id { get; set; }
         public DateTime TimeStamp { get; set; }
+        public int EventDescriptionId { get; set; }
         public EventDescription Description { get; set; }
     }
 }
