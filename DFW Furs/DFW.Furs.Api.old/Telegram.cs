@@ -52,7 +52,7 @@ namespace DFW.Furs.Api
                 var postId = t.Attributes["data-post"].Value;
                 postId = postId.Substring(postId.IndexOf("/") + 1);
                 post.Id = long.Parse(postId);
-
+               
                 t = t.ChildNodes[1].ChildNodes.FindFirst("img");
                 post.AuthorImage = t.Attributes["src"].Value;
                 var msg = d.SelectSingleNode("//div[contains(@class, 'tgme_widget_message_bubble')]");
