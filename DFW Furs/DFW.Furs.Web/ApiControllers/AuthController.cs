@@ -74,8 +74,10 @@ namespace DFW.Furs.Web.ApiControllers
 
         // POST: api/Auth
         [HttpPost]
-        public async Task<ActionResult<TgUserAuth>> PostTgUserAuth(TgUserAuth tgUserAuth)
+        public async Task<ActionResult<TgUserAuth>> PostTgUserAuth([FromBody] TgUserAuth tgUserAuth)
         {
+            tgUserAuth.telegram_id = tgUserAuth.id;
+            tgUserAuth.id = 0;
             _context.Authentications.Add(tgUserAuth);
             await _context.SaveChangesAsync();
 

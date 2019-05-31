@@ -4,14 +4,16 @@ using DFW.Furs.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DFW.Furs.Database.Migrations
 {
     [DbContext(typeof(DFWDbContext))]
-    partial class DFWDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190531172823_FixTelegramId")]
+    partial class FixTelegramId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,8 +70,6 @@ namespace DFW.Furs.Database.Migrations
                     b.Property<string>("AvgAttendance");
 
                     b.Property<string>("Cost");
-
-                    b.Property<string>("Description");
 
                     b.Property<string>("Duration");
 
