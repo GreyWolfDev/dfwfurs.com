@@ -1,4 +1,5 @@
-﻿using DFW.Furs.Models;
+﻿using DFW.Furs.Api.Interfaces;
+using DFW.Furs.Models;
 using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DFW.Furs.Api
 {
-    public static class Telegram
+    public class Telegram : ISocialMedia<TgChannelPost>
     {
         private static HttpClient _client = new HttpClient();
         /// <summary>
@@ -51,7 +52,7 @@ namespace DFW.Furs.Api
                 var t = d.FirstChild;
                 var postId = t.Attributes["data-post"].Value;
                 postId = postId.Substring(postId.IndexOf("/") + 1);
-                post.Id = long.Parse(postId);
+                post.Id = int.Parse(postId);
 
                 t = t.ChildNodes[1].ChildNodes.FindFirst("img");
                 post.AuthorImage = t.Attributes["src"].Value;
@@ -93,5 +94,7 @@ namespace DFW.Furs.Api
             }
             return result.OrderByDescending(x => x.Timestamp).Take(count).ToList();
         }
+
+        public async Task<IEnumerable<TgChannelPost>> GetItems(string identifier, int count) => await ParseChannel(identifier, count);
     }
 }

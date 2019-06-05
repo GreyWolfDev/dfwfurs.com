@@ -4,9 +4,8 @@ using System.Text;
 
 namespace DFW.Furs.Models
 {
-    public struct TgChannelPost
+    public class TgChannelPost : IPost
     {
-        public long Id { get; set; }
         public string AuthorImage { get; set; }
         public string MessageAuthor { get; set; } //should be the channels name
         public string ForwardedFromName { get; set; }
