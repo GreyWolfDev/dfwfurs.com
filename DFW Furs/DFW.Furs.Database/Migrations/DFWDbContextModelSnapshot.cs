@@ -75,7 +75,13 @@ namespace DFW.Furs.Database.Migrations
 
                     b.Property<string>("Frequency");
 
+                    b.Property<bool>("FursuitFriendly");
+
                     b.Property<string>("Location");
+
+                    b.Property<string>("Photo");
+
+                    b.Property<string>("Tags");
 
                     b.Property<string>("Title");
 

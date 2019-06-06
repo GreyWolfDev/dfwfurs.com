@@ -22,6 +22,9 @@ namespace DFW.Furs.Models
         public string Duration { get; set; }
         public string Frequency { get; set; }
         public string Location { get; set; }
+        public string Photo { get; set; }
+        public string Tags { get; set; }
+        public bool FursuitFriendly { get; set; }
         
         public virtual ICollection<EventOrganizer> Organizers { get; set; }
 

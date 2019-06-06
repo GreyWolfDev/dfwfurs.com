@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DFW.Furs.Database;
 using DFW.Furs.Models;
+using System.Security.Claims;
 
 namespace DFW.Furs.Web.ApiControllers
 {
@@ -21,56 +22,56 @@ namespace DFW.Furs.Web.ApiControllers
             _context = context;
         }
 
-        // GET: api/Auth
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<TgUserAuth>>> GetAuthentications()
-        {
-            return await _context.Authentications.ToListAsync();
-        }
+        //// GET: api/Auth
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<TgUserAuth>>> GetAuthentications()
+        //{
+        //    return await _context.Authentications.ToListAsync();
+        //}
 
-        // GET: api/Auth/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<TgUserAuth>> GetTgUserAuth(int id)
-        {
-            var tgUserAuth = await _context.Authentications.FindAsync(id);
+        //// GET: api/Auth/5
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<TgUserAuth>> GetTgUserAuth(int id)
+        //{
+        //    var tgUserAuth = await _context.Authentications.FindAsync(id);
 
-            if (tgUserAuth == null)
-            {
-                return NotFound();
-            }
+        //    if (tgUserAuth == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return tgUserAuth;
-        }
+        //    return tgUserAuth;
+        //}
 
-        // PUT: api/Auth/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutTgUserAuth(int id, TgUserAuth tgUserAuth)
-        {
-            if (id != tgUserAuth.id)
-            {
-                return BadRequest();
-            }
+        //// PUT: api/Auth/5
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> PutTgUserAuth(int id, TgUserAuth tgUserAuth)
+        //{
+        //    if (id != tgUserAuth.id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            _context.Entry(tgUserAuth).State = EntityState.Modified;
+        //    _context.Entry(tgUserAuth).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TgUserAuthExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!TgUserAuthExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
         // POST: api/Auth
         [HttpPost]
@@ -80,29 +81,30 @@ namespace DFW.Furs.Web.ApiControllers
             tgUserAuth.id = 0;
             _context.Authentications.Add(tgUserAuth);
             await _context.SaveChangesAsync();
-
+            Response.Cookies.Append("telegram-login", tgUserAuth.hash);
+           
             return CreatedAtAction("GetTgUserAuth", new { id = tgUserAuth.id }, tgUserAuth);
         }
 
-        // DELETE: api/Auth/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<TgUserAuth>> DeleteTgUserAuth(int id)
-        {
-            var tgUserAuth = await _context.Authentications.FindAsync(id);
-            if (tgUserAuth == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/Auth/5
+        //[HttpDelete("{id}")]
+        //public async Task<ActionResult<TgUserAuth>> DeleteTgUserAuth(int id)
+        //{
+        //    var tgUserAuth = await _context.Authentications.FindAsync(id);
+        //    if (tgUserAuth == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            _context.Authentications.Remove(tgUserAuth);
-            await _context.SaveChangesAsync();
+        //    _context.Authentications.Remove(tgUserAuth);
+        //    await _context.SaveChangesAsync();
 
-            return tgUserAuth;
-        }
+        //    return tgUserAuth;
+        //}
 
-        private bool TgUserAuthExists(int id)
-        {
-            return _context.Authentications.Any(e => e.id == id);
-        }
+        //private bool TgUserAuthExists(int id)
+        //{
+        //    return _context.Authentications.Any(e => e.id == id);
+        //}
     }
 }

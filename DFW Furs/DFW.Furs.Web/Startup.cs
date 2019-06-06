@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DFW.Furs.Database;
+using DFW.Furs.Web.Security;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -40,10 +42,13 @@ namespace DFW.Furs.Web
             else
                 services.AddDbContext<DFWDbContext>(options =>
                         options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=dfwfurs;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
-
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            //services.AddHttpContextAccessor();
             services.BuildServiceProvider().GetService<DFWDbContext>().Database.Migrate();
-
+            services.AddTransient<IAuthorizationPolicyProvider, SecurePolicy>();
+            services.AddScoped<IAuthorizationHandler, SecureHandler>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddAuthorization();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

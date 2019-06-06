@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace DFW.Furs.Models
 {
-    public class CrewMember
+    public class CrewMember 
     {
         public CrewMember()
         {
@@ -27,9 +28,19 @@ namespace DFW.Furs.Models
     [Flags]
     public enum Role
     {
+        None,
         Admin,
         Developer,
         EventOrganizer,
         BlogWriter
+    }
+    public static class Extension
+    {
+        public static IEnumerable<Enum> GetFlags(this Enum input)
+        {
+            foreach (Enum value in Enum.GetValues(input.GetType()))
+                if (input.HasFlag(value))
+                    yield return value;
+        }
     }
 }

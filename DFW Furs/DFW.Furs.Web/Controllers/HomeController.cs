@@ -13,7 +13,9 @@ namespace DFW.Furs.Web.Controllers
     {
         public IActionResult Index()
         {
+            Response.Cookies.Append("telegram-login", "89725a909fba421b3c991da11f5077010841eb8128eb2fa35674f51b9f5805ca");
             return View();
+
         }
 
         public IActionResult About()

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DFW.Furs.Web.Controllers
 {
+    
     public class EventsController : Controller
     {
         private readonly DFWDbContext _context;
@@ -23,6 +24,9 @@ namespace DFW.Furs.Web.Controllers
 
         public IActionResult Descriptions()
         {
+            var events = _context.EventDescriptions.ToList();
+            var tags = events.Where(x => x.Tags != null).SelectMany(x => x.Tags.Split(",")).Select(x => x.Trim()).Distinct();
+            ViewData["tags"] = tags;
             return View(_context.EventDescriptions.ToList());
         }
 
