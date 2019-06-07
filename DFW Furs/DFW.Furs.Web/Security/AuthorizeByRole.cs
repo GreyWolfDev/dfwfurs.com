@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace DFW.Furs.Web.Security
 {
-    public class Secure : AuthorizeAttribute
+    public class AuthorizeByRole : AuthorizeAttribute
     {
         Role role { get; set; }
-        public Secure(Role role)
+        public AuthorizeByRole(Role role)
         {
             Role = role;
         }
@@ -26,7 +26,7 @@ namespace DFW.Furs.Web.Security
             set
             {
                 role = value;
-                Policy = $"{"Role"}.{value.ToString()}";
+                Policy = $"Role.{value.ToString()}";
             }
         }
     }

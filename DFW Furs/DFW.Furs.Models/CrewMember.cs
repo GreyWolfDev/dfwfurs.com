@@ -28,11 +28,12 @@ namespace DFW.Furs.Models
     [Flags]
     public enum Role
     {
-        None,
-        Admin,
-        Developer,
-        EventOrganizer,
-        BlogWriter
+        None = 0,
+        Admin = 1,
+        Developer = 2,
+        EventOrganizer = 4,
+        BlogWriter = 8,
+        CrewMember = 16
     }
     public static class Extension
     {

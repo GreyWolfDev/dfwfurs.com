@@ -11,7 +11,7 @@ using DFW.Furs.Web.Security;
 
 namespace DFW.Furs.Web.Controllers
 {
-    [Secure(Role.EventOrganizer)]
+    [AuthorizeByRole(Role.EventOrganizer)]
     public class EventDescriptionsController : Controller
     {
         private readonly DFWDbContext _context;
