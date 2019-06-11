@@ -16,5 +16,6 @@ namespace DFW.Furs.Models
         public DateTime Timestamp { get; set; }
         public string VideoUrl { get; set; }
         public string VideoThumbnail { get; set; }
+        public string RawHtml { get; set; }
     }
 }

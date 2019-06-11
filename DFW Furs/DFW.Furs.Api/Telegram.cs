@@ -47,6 +47,7 @@ namespace DFW.Furs.Api
             {
                 var post = new TgChannelPost();
                 var postNode = new HtmlDocument();
+                post.RawHtml = p.InnerHtml;
                 postNode.LoadHtml(p.InnerHtml);
                 var d = postNode.DocumentNode;
                 var t = d.FirstChild;

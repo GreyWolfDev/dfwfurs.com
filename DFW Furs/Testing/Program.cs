@@ -1,5 +1,7 @@
 ﻿using DFW.Furs.Api;
 using System;
+using DFW.Furs.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace Testing
 {
@@ -7,16 +9,92 @@ namespace Testing
     {
         static void Main(string[] args)
         {
-            var posts = Telegram.ParseChannel("DFWEvents").Result;
-            posts.Reverse();
-            foreach (var p in posts)
+            
+        }
+
+        public static void SetupEvents()
+        {
+            var o = new DbContextOptionsBuilder<DFWDbContext>();
+            o.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=dfwfurs;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            //schedule some events
+            using (var db = new DFWDbContext(o.Options))
             {
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.Write($"{p.MessageAuthor}: ");
-                Console.ForegroundColor = ConsoleColor.Gray;
-                Console.WriteLine($"{p.Text}\r\n");
+                //get the events
+                var e = db.EventDescriptions.Find(2);
+                for (var m = 1; m <= 12; m++)
+                {
+                    var date = new DateTime(2019, m, 8);
+                    while (date.DayOfWeek != DayOfWeek.Sunday)
+                        date = date.AddDays(1);
+
+                    e.Events.Add(new DFW.Furs.Models.Event { TimeStamp = date });
+                    db.SaveChanges();
+                }
+
+                e = db.EventDescriptions.Find(3);
+                for (var m = 1; m <= 12; m++)
+                {
+                    var date = new DateTime(2019, m, 15);
+                    while (date.DayOfWeek != DayOfWeek.Sunday)
+                        date = date.AddDays(1);
+
+                    e.Events.Add(new DFW.Furs.Models.Event { TimeStamp = date });
+                    db.SaveChanges();
+                }
+
+                e = db.EventDescriptions.Find(4);
+                for (var m = 1; m <= 12; m++)
+                {
+                    var date = new DateTime(2019, m, 8);
+                    while (date.DayOfWeek != DayOfWeek.Saturday)
+                        date = date.AddDays(1);
+
+                    e.Events.Add(new DFW.Furs.Models.Event { TimeStamp = date });
+                    if (m != 2)
+                    {
+                        date = new DateTime(2019, m, 29);
+                        while (date.DayOfWeek != DayOfWeek.Saturday)
+                            date = date.AddDays(1);
+
+                        if (date.Month == m)
+                            e.Events.Add(new DFW.Furs.Models.Event { TimeStamp = date });
+                    }
+                    db.SaveChanges();
+                }
+
+                e = db.EventDescriptions.Find(5);
+                for (var m = 1; m <= 12; m++)
+                {
+                    var date = new DateTime(2019, m, 1);
+                    while (date.DayOfWeek != DayOfWeek.Saturday)
+                        date = date.AddDays(1);
+
+                    e.Events.Add(new DFW.Furs.Models.Event { TimeStamp = date });
+                    db.SaveChanges();
+                }
+
+                e = db.EventDescriptions.Find(6);
+                for (var m = 1; m <= 12; m++)
+                {
+                    var date = new DateTime(2019, m, DateTime.DaysInMonth(2019, m));
+                    while (date.DayOfWeek != DayOfWeek.Sunday)
+                        date = date.AddDays(-1);
+
+                    e.Events.Add(new DFW.Furs.Models.Event { TimeStamp = date });
+                    db.SaveChanges();
+                }
+
+                e = db.EventDescriptions.Find(9);
+                for (var m = 1; m <= 12; m++)
+                {
+                    var date = new DateTime(2019, m, 8);
+                    while (date.DayOfWeek != DayOfWeek.Saturday)
+                        date = date.AddDays(1);
+
+                    e.Events.Add(new DFW.Furs.Models.Event { TimeStamp = date });
+                    db.SaveChanges();
+                }
             }
-            Console.Read();
         }
     }
 }

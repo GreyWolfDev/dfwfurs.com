@@ -5,16 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DFW.Furs.Web.Models;
-
+using DFW.Furs.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace DFW.Furs.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly DFWDbContext _context;
+
+        public HomeController(DFWDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
-            return View();
-
+            var today = DateTime.Now.Date;
+            return View(_context.Events.Include("Description").Where(x => x.TimeStamp.Date >= today).OrderBy(x => x.TimeStamp).Take(5).ToList());
         }
 
         public IActionResult About()

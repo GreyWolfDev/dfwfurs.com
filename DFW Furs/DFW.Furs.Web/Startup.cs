@@ -47,7 +47,11 @@ namespace DFW.Furs.Web
             services.BuildServiceProvider().GetService<DFWDbContext>().Database.Migrate();
             services.AddTransient<IAuthorizationPolicyProvider, SecurePolicy>();
             services.AddScoped<IAuthorizationHandler, SecureHandler>();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            var mvc = services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            mvc.AddJsonOptions(options =>
+           {
+               options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+           });
             services.AddAuthorization();
         }
 

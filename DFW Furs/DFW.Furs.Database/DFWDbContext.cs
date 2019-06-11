@@ -8,7 +8,7 @@ namespace DFW.Furs.Database
 {
     public class DFWDbContext : DbContext
     {
-        public DFWDbContext (DbContextOptions<DFWDbContext> options)
+        public DFWDbContext(DbContextOptions<DFWDbContext> options)
             : base(options)
         {
 

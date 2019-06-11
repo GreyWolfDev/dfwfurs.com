@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model List<DFW.Furs.Models.Event>
 
 <!-- REVOLUTION SLIDER -->
 <section id="slider" class="fullwidthbanner-container roundedcorners">
@@ -297,134 +298,99 @@
         <div class="row">
             <!--TODO: make this an ajax request, add models, database -->
             <!-- RIGHT -->
-            <div class="col-lg-offset-1 col-lg-8 col-md-9 col-sm-9 order-lg-2 order-md-2 order-sm-2">
+            <div class="col-lg-offset-1 col-lg-8 col-md-9 col-sm-9 order-lg-2 order-md-2 order-sm-2" id="events">
 
                 <h2>Upcoming Events</h2>
+                @foreach (var item in Model)
+                {
+                    <!-- news item -->
+                    <div class="inews-item">
+                        <a class="inews-thumbnail" href="#">
+                            @if (item.Description.FursuitFriendly)
+                            {
+                                <span class="inews-sticky font-lato">
+                                    <i class="fa fa-child"></i>
+                                    FURSUIT FRIENDLY
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="inews-sticky font-lato" style="background-color:red">
+                                    <i class="fa fa-frown-o"></i>
+                                    NO FURSUITS
+                                </span>
+                            }
+                            @if (item.Description.Photo != null)
+                            {
+                                <img class="img-fluid" src="~/images/events/@item.Description.Photo" alt="image">
+                            }
+                            else
+                            {
+                                <img class="img-fluid" src="demo_files/images/thematics/music/a1-min.jpg" alt="image">
+                            }
+                        </a>
+                        <div class="inews-item-content">
 
-                <!-- news item -->
-                <div class="inews-item">
-                    @*<a class="inews-thumbnail" href="#">
-                            <span class="inews-sticky font-lato">
-                                <i class="fa fa-bullhorn"></i>
-                                STICKY POST
-                            </span>
-                            <img class="img-fluid" src="demo_files/images/thematics/music/a1-min.jpg" alt="image">
-                        </a>*@
-
-                    <div class="inews-item-content">
-
-                        <div class="inews-date-wrapper">
-                            <span class="inews-date-day">1</span>
-                            <span class="inews-date-month">June</span>
-                            <span class="inews-date-year">2019</span>
-                        </div>
-
-                        <div class="inews-content-inner">
-
-                            <h3 class="fs-20"><a href="#">Dallas Furcade (#Furcade)</a></h3>
-                            <ul class="blog-post-info list-inline b-0 mb-20 p-0">
-                                <li>
-                                    <a href="page-profile.html">
-                                        <i class="fa fa-user"></i>
-                                        <span class="font-lato">Dr. Wildlife</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <i class="fa fa-folder-open-o"></i>
-
-                                    <a class="category" href="#">
-                                        <span class="font-lato">Meet</span>
-                                    </a>
-                                    <a class="category" href="#">
-                                        <span class="font-lato">Fursuit Friendly</span>
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <p>Freshly brewed cider and retro arcade games. What more could you ask for? Known as DFW's first arcade meet, Furcade also features a rotating selection of food trucks to satisfy your hunger while you game the night away.</p>
-                            <div class="paragraph" style="color:rgb(155, 155, 155)">
-                                <strong style="color:rgb(155, 155, 155)">Admission Cost:&nbsp;</strong>
-                                <span style="color:rgb(155, 155, 155)">$10 + tax for unlimited play</span><br>
-                                <strong style="color:rgb(155, 155, 155)">​Age Requirement: </strong>
-                                <span style="color:rgb(155, 155, 155)">21+ after 8PM</span><br>
-                                <strong style="color:rgb(155, 155, 155)">Average Attendance</strong>
-                                <span style="color:rgb(155, 155, 155)">: 150+</span><br>
-                                <strong style="color:rgb(155, 155, 155)">Duration</strong>
-                                <span style="color:rgb(155, 155, 155)">: 5-8 hours</span><br>
-                                <strong style="color:rgb(155, 155, 155)">Location</strong>
-                                <span style="color:rgb(155, 155, 155)">: Cidercade,&nbsp;2777 Irving Blvd #200, Dallas, TX 75207</span>
+                            <div class="inews-date-wrapper">
+                                <span class="inews-date-day">@item.TimeStamp.Day</span>
+                                <span class="inews-date-month">@item.TimeStamp.ToString("MMMM")</span>
+                                <span class="inews-date-year">@item.TimeStamp.Year</span>
                             </div>
-                        </div>
 
+                            <div class="inews-content-inner">
 
-                    </div>
-                </div>
-                <!-- /news item -->
-                <!-- news item -->
-                <div class="inews-item">
-                    @*<a class="inews-thumbnail" href="#">
-                            <span class="inews-sticky font-lato">
-                                <i class="fa fa-bullhorn"></i>
-                                STICKY POST
-                            </span>
-                            <img class="img-fluid" src="demo_files/images/thematics/music/a1-min.jpg" alt="image">
-                        </a>*@
+                                <h3 class="fs-20"><a href="#">@item.Description.Title</a></h3>
+                                <ul class="blog-post-info list-inline b-0 mb-20 p-0">
+                                    <li>
+                                        <a href="page-profile.html">
+                                            <i class="fa fa-user"></i>
+                                            <span class="font-lato">Run by (TODO) @String.Join(",", item.Description.Organizers.Select(x => x.CrewMember.Name))</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-folder-open-o"></i>
+                                        @if (item.Description.Tags != null)
+                                        {
+                                            @foreach (var tag in item.Description.Tags.Split(','))
+                                            {
+                                                <a class="category" href="#?tag=@tag.Trim()">
+                                                    <span class="font-lato">@tag.Trim()</span>
+                                                </a>
+                                            }
+                                        }
+                                    </li>
+                                </ul>
 
-                    <div class="inews-item-content">
+                                <h4>@item.Description.Description</h4>
+                                <div class="paragraph" style="color:rgb(155, 155, 155)">
+                                    <strong style="color:rgb(155, 155, 155)">Admission Cost:&nbsp;</strong>
+                                    <span style="color:rgb(155, 155, 155)">
+                                        @Html.Raw(item.Description.Cost)
+                                    </span><br>
+                                    <strong style="color:rgb(155, 155, 155)">​Age Requirement:&nbsp;</strong>
+                                    <span style="color:rgb(155, 155, 155)">@item.Description.Age</span><br>
+                                    <strong>Average Attendance</strong>: @item.Description.AvgAttendance.<br>
+                                    <strong>Duration</strong>: @item.Description.Duration<br>
+                                    <strong>Location</strong>: @item.Description.Location
 
-                        <div class="inews-date-wrapper">
-                            <span class="inews-date-day">9</span>
-                            <span class="inews-date-month">June</span>
-                            <span class="inews-date-year">2019</span>
-                        </div>
+                                </div>
 
-                        <div class="inews-content-inner">
-
-                            <h3 class="fs-20"><a href="#">Arlington Fur Meet (#AFM)</a></h3>
-                            <ul class="blog-post-info list-inline b-0 mb-20 p-0">
-                                <li>
-                                    <a href="page-profile.html">
-                                        <i class="fa fa-user"></i>
-                                        <span class="font-lato">Toboe and Dr. Wildlife</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <i class="fa fa-folder-open-o"></i>
-
-                                    <a class="category" href="#">
-                                        <span class="font-lato">Meet</span>
-                                    </a>
-                                    <a class="category" href="#">
-                                        <span class="font-lato">Fursuit Friendly</span>
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <p>The "OG" fur meet of the area. This is our largest and oldest meet at a large park in Arlington, Texas. Features vendors, pot lucks, dance battles, and more. </p>
-                            <div class="paragraph" style="color:rgb(155, 155, 155)">
-                                <strong style="color:rgb(155, 155, 155)">Admission Cost:&nbsp;</strong>
-                                <span style="color:rgb(155, 155, 155)">None,&nbsp;</span>
-                                <a href="https://ko-fi.com/dfwfurs" target="_blank">Suggested Donations​</a><br>
-                                <strong style="color:rgb(155, 155, 155)">​Age Requirement:&nbsp;</strong>
-                                <span style="color:rgb(155, 155, 155)">All Ages</span><br>
-                                <strong>Average Attendance</strong>: 150+<br>
-                                <strong>Duration</strong>: ~5 hours<br>
-                                <strong>Location</strong>: 2800 W Sublett Rd, Arlington, TX 76001
                             </div>
+
+
                         </div>
-
-
                     </div>
-                </div>
-                <!-- /news item -->
+                    <!-- /news item -->
+
+
+                }
 
             </div>
 
             <!-- LEFT -->
             <div class="col-lg-3 col-md-3 col-sm-3 order-lg-1 order-md-1 order-sm-1">
                 <h3 class="mt-8">Telegram Feed</h3>
-                <ul class="widget-twitter mb-20" id="telegram">
-                </ul>
+                <ul class="widget-twitter mb-20" id="telegram"></ul>
             </div>
 
         </div>
@@ -442,6 +408,8 @@
                 $("#telegram").append(html);
             });
         });
+
+
     });
 
     function createBlock(post) {

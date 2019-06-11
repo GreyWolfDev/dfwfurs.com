@@ -27,7 +27,8 @@ namespace DFW.Furs.Models
         public bool FursuitFriendly { get; set; }
         
         public virtual ICollection<EventOrganizer> Organizers { get; set; }
+        [InverseProperty("Description")]
 
-        public virtual ICollection<Event> Events { get; set; }
+        public ICollection<Event> Events { get; set; }
     }
 }

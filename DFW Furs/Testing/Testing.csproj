@@ -7,6 +7,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DFW.Furs.Api\DFW.Furs.Api.csproj" />
+    <ProjectReference Include="..\DFW.Furs.Bot\DFW.Furs.Bot.csproj" />
+    <ProjectReference Include="..\DFW.Furs.Database\DFW.Furs.Database.csproj" />
+    <ProjectReference Include="..\DFW.Furs.Models\DFW.Furs.Models.csproj" />
   </ItemGroup>
 
 </Project>
