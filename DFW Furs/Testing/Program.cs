@@ -2,6 +2,9 @@
 using System;
 using DFW.Furs.Database;
 using Microsoft.EntityFrameworkCore;
+using DFW.Furs;
+using DFW.Furs.Bot;
+using System.Threading;
 
 namespace Testing
 {
@@ -9,7 +12,8 @@ namespace Testing
     {
         static void Main(string[] args)
         {
-            
+            Bot.Start().Wait();
+            Thread.Sleep(-1);
         }
 
         public static void SetupEvents()

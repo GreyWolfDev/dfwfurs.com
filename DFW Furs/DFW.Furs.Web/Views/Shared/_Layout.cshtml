@@ -38,7 +38,7 @@
     <!-- THEME CSS -->
     <link href="/css/essentials.css" rel="stylesheet" type="text/css" />
     <link href="/css/layout.css" rel="stylesheet" type="text/css" />
-   
+    @*<link href="/css/layout-dark.css" rel="stylesheet" type="text/css" />*@
 
     <!-- PAGE LEVEL SCRIPTS -->
     <link href="/css/header-1.css" rel="stylesheet" type="text/css" />
@@ -86,34 +86,34 @@
         </nav>*@
     <div class="wrapper" id="wrapper">
         <!--
-        AVAILABLE HEADER CLASSES
+            AVAILABLE HEADER CLASSES
 
-        Default nav height: 96px
-        .header-md 		= 70px nav height
-        .header-sm 		= 60px nav height
+            Default nav height: 96px
+            .header-md 		= 70px nav height
+            .header-sm 		= 60px nav height
 
-        .b-0 		= remove bottom border (only with transparent use)
-        .transparent	= transparent header
-        .translucent	= translucent header
-        .sticky			= sticky header
-        .static			= static header
-        .dark			= dark header
-        .bottom			= header on bottom
-        .scroll			= reveal on scroll up (should be not used with topBar)
+            .b-0 		= remove bottom border (only with transparent use)
+            .transparent	= transparent header
+            .translucent	= translucent header
+            .sticky			= sticky header
+            .static			= static header
+            .dark			= dark header
+            .bottom			= header on bottom
+            .scroll			= reveal on scroll up (should be not used with topBar)
 
-        shadow-before-1 = shadow 1 header top
-        shadow-after-1 	= shadow 1 header bottom
-        shadow-before-2 = shadow 2 header top
-        shadow-after-2 	= shadow 2 header bottom
-        shadow-before-3 = shadow 3 header top
-        shadow-after-3 	= shadow 3 header bottom
+            shadow-before-1 = shadow 1 header top
+            shadow-after-1 	= shadow 1 header bottom
+            shadow-before-2 = shadow 2 header top
+            shadow-after-2 	= shadow 2 header bottom
+            shadow-before-3 = shadow 3 header top
+            shadow-after-3 	= shadow 3 header bottom
 
-        .clearfix		= required for mobile menu, do not remove!
+            .clearfix		= required for mobile menu, do not remove!
 
-        Example Usage:  class="clearfix sticky header-sm transparent b-0"
-    -->
+            Example Usage:  class="clearfix sticky header-sm transparent b-0"
+        -->
 
-        <div id="header" class="navbar-toggleable-md sticky transparent clearfix">
+        <div id="header" class="navbar-toggleable-md sticky clearfix">
             <header id="topNav" class="">
                 <div class="container">
                     <!-- Mobile Menu Button -->
@@ -122,7 +122,7 @@
                     </button>
 
                     <a asp-area="" asp-controller="Home" asp-action="Index" class="logo float-left navbar-brand">
-                        <img src="~/images/dfwfurlogo.png"/>
+                        <img src="~/images/dfwfurlogo.png" />
                     </a>
 
                     <div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark" data-switch-default="submenu-dark" data-switch-scroll="">
@@ -145,8 +145,14 @@
                                         <li><a asp-area="" asp-controller="Events" asp-action="Photos" class="">PHOTO GALLERY</a></li>
                                     </ul>
                                 </li>
-                                <li id="active">
-                                    <a asp-area="" asp-controller="Home" asp-action="Connect" class="">CONNECT</a>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#">
+                                        CONNECT
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a asp-area="" asp-controller="Home" asp-action="Connect" class="">TELEGRAM GROUPS</a></li>
+                                        <li><a href="https://discord.gg/TujhkDp" target="_blank">DISCORD</a></li>
+                                    </ul>
                                 </li>
                                 <li id="active">
                                     <a asp-area="" asp-controller="Blog" asp-action="Index" class="">BLOG</a>
@@ -176,7 +182,7 @@
     @*<partial name="_CookieConsentPartial" />*@
 
     <div class="container body-content">
-        
+
         <hr />
         <footer>
             <p>&copy; 2019 - DFW Furs</p>

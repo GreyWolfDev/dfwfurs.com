@@ -16,10 +16,10 @@ namespace DFW.Furs.Web.ApiControllers
     [EnableCors]
     public class TelegramController : ControllerBase
     {
-        private readonly Telegram Telegram;
+        private readonly Api.Telegram Telegram;
         public TelegramController()
         {
-            Telegram = new Telegram();
+            Telegram = new Api.Telegram();
         }
         [HttpGet]
         public async Task<IEnumerable<TgChannelPost>> Get(string channel = "DFWEvents", int total = 3)

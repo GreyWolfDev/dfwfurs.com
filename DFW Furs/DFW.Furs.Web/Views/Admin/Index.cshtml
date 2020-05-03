@@ -1,5 +1,50 @@
-﻿
+﻿@using DFW.Furs.Models;
+@model IEnumerable<TgUserAuth>
+
+@{ DateTime Epoch = new DateTime(1970, 1, 1); }
+
 <section id="authentications">
+
+    <h2>Index</h2>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Photo</th>
+                <th>Auth Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.first_name @item.last_name
+                    </td>
+                    <td>
+                        @if (!String.IsNullOrWhiteSpace(item.username))
+                        {
+                            <text><a href="https://t.me/@item.username">@@@item.username</a></text>
+                        }
+                    </td>
+                    <td>
+                        <img src="@item.photo_url" style="height: 50px"/>
+                    </td>
+                    <td>
+                       @Epoch.AddSeconds(item.auth_date).ToString()
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
 
     <script async src="https://telegram.org/js/telegram-widget.js?5" data-telegram-login="dfwfursbot" data-size="large" data-radius="0" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
     <script type="text/javascript">

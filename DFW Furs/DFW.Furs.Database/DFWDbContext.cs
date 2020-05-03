@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using DFW.Furs.Models;
+using Microsoft.Win32;
 
 namespace DFW.Furs.Database
 {
@@ -14,10 +15,24 @@ namespace DFW.Furs.Database
 
         }
 
+        public DFWDbContext()
+        {
+
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+            => optionsBuilder.UseSqlServer(ConnectionString);
+
+
+
+        public static string ConnectionString { get; set; }
+
+
         public DbSet<CrewMember> CrewMembers { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<EventDescription> EventDescriptions { get; set; }
         public DbSet<TgUserAuth> Authentications { get; set; }
+        public virtual DbSet<TgGroup> Groups { get;set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<EventOrganizer>()

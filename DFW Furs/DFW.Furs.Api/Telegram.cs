@@ -93,7 +93,7 @@ namespace DFW.Furs.Api
                 post.Timestamp = DateTime.Parse(t.Attributes["datetime"].Value);
                 result.Add(post);
             }
-            return result.OrderByDescending(x => x.Timestamp).Take(count).ToList();
+            return result.Where(x => !String.IsNullOrWhiteSpace(x.Text)).OrderByDescending(x => x.Timestamp).Take(count).ToList();
         }
 
         public async Task<IEnumerable<TgChannelPost>> GetItems(string identifier, int count) => await ParseChannel(identifier, count);
