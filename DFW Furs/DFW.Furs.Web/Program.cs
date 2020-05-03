@@ -17,8 +17,18 @@ namespace DFW.Furs.Web
             CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        {
+            var builder = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json",
+                     optional: false,
+                     reloadOnChange: true)
+                .AddJsonFile("secrets.json",
+                    optional: false,
+                    reloadOnChange: true)
+                .AddEnvironmentVariables();
+            var config = builder.Build();
+            return WebHost.CreateDefaultBuilder(args).UseConfiguration(config).UseStartup<Startup>();
+        }
     }
 }
