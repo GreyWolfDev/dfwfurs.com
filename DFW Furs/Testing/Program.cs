@@ -12,7 +12,7 @@ namespace Testing
     {
         static void Main(string[] args)
         {
-            Bot.Start().Wait();
+            //Bot.Start().Wait();
             Thread.Sleep(-1);
         }
 
