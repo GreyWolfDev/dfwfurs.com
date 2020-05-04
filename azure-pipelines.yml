@@ -34,5 +34,4 @@ steps:
 #    configuration: '$(buildConfiguration)'
 
 
-- publish: $(System.DefaultWorkingDirectory)/bin/WebApp
-  artifact: WebApp
+- publish: d:/a/1/a/WebApp.zip
