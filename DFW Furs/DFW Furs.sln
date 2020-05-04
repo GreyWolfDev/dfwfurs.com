@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DFW.Furs.Api", "DFW.Furs.Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DFW.Furs.Database", "DFW.Furs.Database\DFW.Furs.Database.csproj", "{3E93B41C-B70C-4777-9466-0117831DDCF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DFW.Furs.Bot", "DFW.Furs.Bot\DFW.Furs.Bot.csproj", "{4B70E034-8476-4981-93B1-2BAFF79616F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DFW.Furs.Bot", "DFW.Furs.Bot\DFW.Furs.Bot.csproj", "{4B70E034-8476-4981-93B1-2BAFF79616F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,7 +28,6 @@ Global
 		{B491D100-8D38-4962-9ED9-44E852BB33C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B491D100-8D38-4962-9ED9-44E852BB33C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B491D100-8D38-4962-9ED9-44E852BB33C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B491D100-8D38-4962-9ED9-44E852BB33C7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{839851AA-DE75-49D4-A4F1-DC88AD43ED1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{839851AA-DE75-49D4-A4F1-DC88AD43ED1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{839851AA-DE75-49D4-A4F1-DC88AD43ED1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
