@@ -39,12 +39,16 @@ namespace DFW.Furs.Bot
                         c.Method = (ChatCommandMethod)Delegate.CreateDelegate(typeof(ChatCommandMethod), m);
                         c.InGroupOnly = ca.InGroupOnly;
                         c.LangAdminOnly = ca.LangAdminOnly;
+                        c.Description = ca.Description;
+                        c.ShowInCommandList = ca.ShowInCommandList;
                         Commands.Add(c);
                     }
                 }
             }
 
             Me = await Client.GetMeAsync();
+            var botCommands = Commands.Where(x => x.ShowInCommandList).Select(x => new BotCommand { Command = x.Trigger, Description = x.Description }).ToList();
+            await Client.SetMyCommandsAsync(botCommands);
             Client.OnMessage += Client_OnMessage;
             Client.OnCallbackQuery += Client_OnCallbackQuery;
             Client.OnInlineQuery += Client_OnInlineQuery;
@@ -62,12 +66,12 @@ namespace DFW.Furs.Bot
 
         private static void Client_OnReceiveGeneralError(object sender, Telegram.Bot.Args.ReceiveGeneralErrorEventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private static void Client_OnReceiveError(object sender, Telegram.Bot.Args.ReceiveErrorEventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private static void Client_OnUpdate(object sender, Telegram.Bot.Args.UpdateEventArgs e)

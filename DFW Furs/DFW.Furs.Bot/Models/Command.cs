@@ -14,5 +14,7 @@ namespace DFW.Furs.Bot.Models
         public Bot.ChatCommandMethod Method { get; set; }
         public bool InGroupOnly { get; set; }
         public bool LangAdminOnly { get; set; }
+        public string Description { get; set; }
+        public bool ShowInCommandList { get; set; }
     }
 }

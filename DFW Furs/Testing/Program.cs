@@ -13,13 +13,14 @@ namespace Testing
         static void Main(string[] args)
         {
             //Bot.Start().Wait();
+
             Thread.Sleep(-1);
         }
 
         public static void SetupEvents()
         {
             var o = new DbContextOptionsBuilder<DFWDbContext>();
-            o.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=dfwfurs;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            o.UseSqlServer(@"Data Source=localhost;Initial Catalog=dfwfurs;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             //schedule some events
             using (var db = new DFWDbContext(o.Options))
             {

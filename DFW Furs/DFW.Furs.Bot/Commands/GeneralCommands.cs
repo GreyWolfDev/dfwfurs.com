@@ -14,7 +14,7 @@ namespace DFW.Furs.Bot.Commands
 {
     public static partial class Commands
     {
-        [Command(Trigger = "ping")]
+        [Command(Trigger = "ping", Description = "Check if online")]
         public static void Ping(Message update, string[] args)
         {
             var ts = DateTime.UtcNow - update.Date;
@@ -26,7 +26,7 @@ namespace DFW.Furs.Bot.Commands
             Bot.Client.EditMessageTextAsync(update.Chat.Id, result.MessageId, message);
         }
 
-        [Command(Trigger = "nextevent")]
+        [Command(Trigger = "nextevent", Description = "Get next event", ShowInCommandList = true)]
         public static void NextEvent(Message m, string[] args)
         {
             using (var db = new DFW.Furs.Database.DFWDbContext())
@@ -49,7 +49,7 @@ namespace DFW.Furs.Bot.Commands
             }
         }
 
-        [Command(Trigger = "events")]
+        [Command(Trigger = "events", Description = "Get upcoming events", ShowInCommandList = true)]
         public static void Events(Message m, string[] args)
         {
             using (var db = new DFW.Furs.Database.DFWDbContext())

@@ -37,5 +37,8 @@ namespace DFW.Furs.Bot.Attributes
         public bool Blockable { get; set; } = false;
 
         public bool InGroupOnly { get; set; } = false;
+
+        public string Description { get; set; }
+        public bool ShowInCommandList { get; set; } = false;
     }
 }
