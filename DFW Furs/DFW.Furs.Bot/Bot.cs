@@ -56,7 +56,9 @@ namespace DFW.Furs.Bot
             Client.OnReceiveError += Client_OnReceiveError;
             Client.OnReceiveGeneralError += Client_OnReceiveGeneralError;
             Client.StartReceiving();
-
+#if RELEASE
+            await Client.SendTextMessageAsync(-226056121, "Update completed");
+#endif
 
 
 
