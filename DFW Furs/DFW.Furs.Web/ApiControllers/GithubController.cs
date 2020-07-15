@@ -27,7 +27,7 @@ namespace DFW.Furs.Web.ApiControllers
         public ActionResult Push([FromBody] GitHubPush p)
         {
             Bot.Bot.Client.SendTextMessageAsync(-226056121, $"New push from {p.pusher.name}\n\nCommits:\n" +
-                $"{p.commits.Aggregate("", (c, v) => $"{c}\n<a href=\"{v.url}\">{v.id.Substring(0,7)}</a>: {v.message}")}\n\nSent to Azure for build", Telegram.Bot.Types.Enums.ParseMode.Html);
+                $"{p.commits.Aggregate("", (c, v) => $"{c}\n<a href=\"{v.url}\">{v.id.Substring(0,7)}</a>: {v.message}")}\n\nSent to Azure for build", Telegram.Bot.Types.Enums.ParseMode.Html, disableWebPagePreview: true);
 
             return Ok();
         }
