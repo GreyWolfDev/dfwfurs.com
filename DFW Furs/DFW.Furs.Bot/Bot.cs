@@ -106,19 +106,22 @@ namespace DFW.Furs.Bot
 
         private static void HandleUpdate(Message m)
         {
-            if (m.Text.StartsWith("!") || m.Text.StartsWith("/"))
+            if (m.Type == MessageType.Text)
             {
-                var args = GetParameters(m.Text);
-                args[0] = args[0].ToLower().Replace("@" + Me.Username.ToLower(), "");
-
-
-                var command = Commands.FirstOrDefault(x =>
-                                        String.Equals(x.Trigger, args[0],
-                                            StringComparison.InvariantCultureIgnoreCase));
-
-                if (command != null)
+                if (m.Text.StartsWith("!") || m.Text.StartsWith("/"))
                 {
-                    command.Method.Invoke(m, args);
+                    var args = GetParameters(m.Text);
+                    args[0] = args[0].ToLower().Replace("@" + Me.Username.ToLower(), "");
+
+
+                    var command = Commands.FirstOrDefault(x =>
+                                            String.Equals(x.Trigger, args[0],
+                                                StringComparison.InvariantCultureIgnoreCase));
+
+                    if (command != null)
+                    {
+                        command.Method.Invoke(m, args);
+                    }
                 }
             }
         }
