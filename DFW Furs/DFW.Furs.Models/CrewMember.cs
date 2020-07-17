@@ -21,7 +21,7 @@ namespace DFW.Furs.Models
         /// </summary>
         public string Photo64 { get; set; }
         public Role Roles { get; set; }
-        
+        public TgUser TelegramUser { get; set; }
         public virtual ICollection<EventOrganizer> OrganizedEvents { get; set; }
     }
 
@@ -32,7 +32,7 @@ namespace DFW.Furs.Models
         Admin = 1,
         Developer = 2,
         EventOrganizer = 4,
-        BlogWriter = 8,
+        MediaWriter = 8,
         CrewMember = 16
     }
     public static class Extension
