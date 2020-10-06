@@ -11,5 +11,6 @@ namespace DFW.Furs.Models
         public string Name { get; set; }
         public string UserName { get; set; }
         public int Points { get; set; }
+        public bool AgeVerified { get; set; }
     }
 }

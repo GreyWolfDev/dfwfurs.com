@@ -51,9 +51,7 @@ namespace DFW.Furs.Api
                 postNode.LoadHtml(p.InnerHtml);
                 var d = postNode.DocumentNode;
                 var t = d.FirstChild;
-                var postId = t.Attributes["data-post"].Value;
-                postId = postId.Substring(postId.IndexOf("/") + 1);
-                post.Id = int.Parse(postId);
+                
 
                 t = t.ChildNodes[1].ChildNodes.FindFirst("img");
                 post.AuthorImage = t.Attributes["src"].Value;
@@ -89,7 +87,12 @@ namespace DFW.Furs.Api
                     post.Text = t.InnerHtml;
                 t = msg.SelectSingleNode("//div[contains(@class, 'tgme_widget_message_info')]");
                 post.ViewCount = t.ChildNodes.FindFirst("span").InnerText;
-                t = msg.SelectSingleNode("//a[contains(@class, 'tgme_widget_message_date')]").ChildNodes.FindFirst("time");
+                var dateData = msg.SelectSingleNode("//a[contains(@class, 'tgme_widget_message_date')]");
+                var postId = dateData.Attributes["href"].Value;
+                postId = postId.Substring(postId.LastIndexOf("/") + 1);
+                post.Id = int.Parse(postId);
+                t = dateData.ChildNodes.FindFirst("time");
+
                 post.Timestamp = DateTime.Parse(t.Attributes["datetime"].Value);
                 result.Add(post);
             }

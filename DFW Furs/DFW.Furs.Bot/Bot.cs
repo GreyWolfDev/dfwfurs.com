@@ -106,7 +106,7 @@ namespace DFW.Furs.Bot
 
         private static void HandleUpdate(Message m)
         {
-            if (m.Type == MessageType.Text)
+            if (!String.IsNullOrWhiteSpace(m.Text))
             {
                 if (m.Text.StartsWith("!") || m.Text.StartsWith("/"))
                 {
@@ -123,6 +123,69 @@ namespace DFW.Furs.Bot
                         command.Method.Invoke(m, args);
                     }
                 }
+            }
+            switch (m.Type)
+            {
+                case MessageType.Unknown:
+                    break;
+                case MessageType.Text:
+                    break;
+                case MessageType.Photo:
+                    break;
+                case MessageType.Audio:
+                    break;
+                case MessageType.Video:
+                    break;
+                case MessageType.Voice:
+                    break;
+                case MessageType.Document:
+                    break;
+                case MessageType.Sticker:
+                    break;
+                case MessageType.Location:
+                    break;
+                case MessageType.Contact:
+                    break;
+                case MessageType.Venue:
+                    break;
+                case MessageType.Game:
+                    break;
+                case MessageType.VideoNote:
+                    break;
+                case MessageType.Invoice:
+                    break;
+                case MessageType.SuccessfulPayment:
+                    break;
+                case MessageType.WebsiteConnected:
+                    break;
+                case MessageType.ChatMembersAdded:
+                    break;
+                case MessageType.ChatMemberLeft:
+                    break;
+                case MessageType.ChatTitleChanged:
+                    break;
+                case MessageType.ChatPhotoChanged:
+                    break;
+                case MessageType.MessagePinned:
+                    break;
+                case MessageType.ChatPhotoDeleted:
+                    break;
+                case MessageType.GroupCreated:
+                    break;
+                case MessageType.SupergroupCreated:
+                    break;
+                case MessageType.ChannelCreated:
+                    break;
+                case MessageType.MigratedToSupergroup:
+                    break;
+                case MessageType.MigratedFromGroup:
+                    break;
+                case MessageType.Animation:
+                    break;
+                case MessageType.Poll:
+                    break;
+                case MessageType.Dice:
+                    break;
             }
         }
 
