@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DFW.Furs.Database;
+using DFW.Furs.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DFW.Furs.Web.Controllers
@@ -16,8 +18,23 @@ namespace DFW.Furs.Web.Controllers
             _context = context;
         }
         public IActionResult Index()
-        {   
-            return View(_context.Authentications.ToList());
+        {
+            List<TgUserAuth> response = new List<TgUserAuth>();
+            if (HttpContext.Session.GetInt32("TelegramId") != null)
+            {
+                return View(_context.Authentications.ToList());
+            }
+            return RedirectToAction("Profile");
+        }
+
+        public IActionResult Profile()
+        {
+            var id = HttpContext.Session.GetInt32("TelegramId");
+            if (id != null)
+            {
+                return View(_context.CrewMembers.FirstOrDefault(x => x.Id == id));
+            }
+            return View();
         }
     }
 }

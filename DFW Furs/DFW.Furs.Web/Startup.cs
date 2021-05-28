@@ -47,7 +47,7 @@ namespace DFW.Furs.Web
             DFWDbContext.ConnectionString = connString;
             services.AddDbContext<DFWDbContext>(options =>
                     options.UseSqlServer(connString));
-
+            services.AddSession();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //services.AddHttpContextAccessor();
             services.BuildServiceProvider().GetService<DFWDbContext>().Database.Migrate();
@@ -79,7 +79,7 @@ namespace DFW.Furs.Web
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

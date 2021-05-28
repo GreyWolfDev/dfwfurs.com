@@ -82,8 +82,8 @@ namespace DFW.Furs.Web.ApiControllers
             _context.Authentications.Add(tgUserAuth);
             await _context.SaveChangesAsync();
             Response.Cookies.Append("telegram-login", tgUserAuth.hash);
-           
-            return CreatedAtAction("GetTgUserAuth", new { id = tgUserAuth.id }, tgUserAuth);
+            HttpContext.Session.SetInt32("TelegramId", tgUserAuth.telegram_id);
+            return CreatedAtAction("GetTgUserAuth", new { tgUserAuth.id }, tgUserAuth);
         }
 
         //// DELETE: api/Auth/5
