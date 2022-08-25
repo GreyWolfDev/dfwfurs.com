@@ -1,0 +1,84 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <UserSecretsId>8f5bcda7-69a4-4e6b-bb71-952a3bbad65e</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Owin" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="secrets.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Admin\Index.cshtml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Events\Calendar.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Events\Photos.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Events\Organizers.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Events\Descriptions.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="wwwroot\js\custom.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\js\plugins.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\edited\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\theme\fonts\1c6c1881-23c9-4d6a-a018-759d1c9ded15.woff2" />
+    <None Include="wwwroot\css\theme\fonts\1de7e6f4-9d4d-47e7-ab23-7d5cf10ab585.svg" />
+    <None Include="wwwroot\css\theme\fonts\2cd55546-ec00-4af9-aeca-4a3cd186da53.woff2" />
+    <None Include="wwwroot\css\theme\fonts\2e3f5cb9-101f-46cf-a7b3-dfaa58261e03.woff2" />
+    <None Include="wwwroot\css\theme\fonts\3966f856-9dcf-48e7-88e7-7400f1b7d619.svg" />
+    <None Include="wwwroot\css\theme\fonts\3f380a53-50ea-4a62-95c5-d5d8dba03ab8.woff2" />
+    <None Include="wwwroot\css\theme\fonts\52a192b1-bea5-4b48-879f-107f009b666f.svg" />
+    <None Include="wwwroot\css\theme\fonts\627fbb5a-3bae-4cd9-b617-2f923e29d55e.woff2" />
+    <None Include="wwwroot\css\theme\fonts\7377dbe6-f11a-4a05-b33c-bc8ce1f60f84.woff2" />
+    <None Include="wwwroot\css\theme\fonts\9fd4ea0c-b19a-4b21-9fdf-37045707dd78.svg" />
+    <None Include="wwwroot\css\theme\fonts\a89d6ad1-a04f-4a8f-b140-e55478dbea80.svg" />
+    <None Include="wwwroot\css\theme\fonts\custom.js" />
+    <None Include="wwwroot\css\theme\fonts\ed4d3c45-af64-4992-974b-c37cd12a9570.svg" />
+    <None Include="wwwroot\js\custom.js" />
+    <None Include="wwwroot\js\plugins.js" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\js\site.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DFW.Furs.Api\DFW.Furs.Api.csproj" />
+    <ProjectReference Include="..\DFW.Furs.Bot\DFW.Furs.Bot.csproj" />
+    <ProjectReference Include="..\DFW.Furs.Database\DFW.Furs.Database.csproj" />
+    <ProjectReference Include="..\DFW.Furs.Models\DFW.Furs.Models.csproj" />
+  </ItemGroup>
+
+</Project>

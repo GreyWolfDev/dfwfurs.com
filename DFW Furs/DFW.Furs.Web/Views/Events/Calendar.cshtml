@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Calendar";
+}
+@using DFW.Furs.Models
+@model IEnumerable<Event>
+<section class="page-header page-header-xs" style="padding-bottom: 0 !important">
+    <div class="container">
+        <h1>
+            EVENTS
+        </h1>
+    </div>
+</section>
+
+<section id="placeholder">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="~/images/calendar.png" style="max-width: 100%;" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img src="~/images/details.png" style="max-width: 100%;" />
+            </div>
+        </div>
+    </div>
+</section>
+
+@*<section id="calendar" class="section-xxs">
+        <div class="container">
+            <div class="table-responsive">
+
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>Time</th>
+                            <th>Location</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Description.Title</td>
+                                <td>@item.TimeStamp.ToString()</td>
+                                <td>@item.Description.Location</td>
+                                <td><a href="/Events/Description/@item.Description.Id">More Info</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>*@

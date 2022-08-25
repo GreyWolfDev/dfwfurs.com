@@ -1,0 +1,135 @@
+﻿@{
+    ViewData["Title"] = "Event Descriptions";
+
+}
+@model List<DFW.Furs.Models.EventDescription>
+<style>
+    #header.transparent #topMain.nav-pills > li > a {
+        color: black
+    }
+</style>
+<section id="events">
+    <div class="container">
+
+        <div class="row">
+
+            <!-- RIGHT -->
+            <div id="portfolio">
+
+                <h2 class="mb-30">Events <span class="fs-18">/ Places to meet others!</span></h2>
+                <ul class="nav nav-pills mb-60 mix-filter">
+                    <li data-filter="all" class="filter active"><a href="#">All</a></li>
+                    @foreach (var t in Model.Where(x => x.Tags != null).SelectMany(x => x.Tags.Split(",")).Select(x => x.Trim()).Distinct())
+                    {
+                        <li class="filter" data-filter="@t">
+                            <a href="#">@t</a>
+                        </li>
+                    }
+                </ul>
+                <div class="mix-grid">
+                    @foreach (var item in Model)
+                    {
+                        <!-- event item -->
+
+                        <div class="col-md-12 col-sm-12 inews-item mix @item.Tags?.Replace(",","") mix_all">
+                            <div class="item-box">
+                                <a class="inews-thumbnail" href="#">
+                                    @if (item.FursuitFriendly)
+                                    {
+                                    <span class="inews-sticky font-lato">
+                                        <i class="fa fa-child"></i>
+                                        FURSUIT FRIENDLY
+                                    </span>
+                                    }
+                                    else
+                                    {
+                                    <span class="inews-sticky font-lato" style="background-color:red">
+                                        <i class="fa fa-frown-o"></i>
+                                        NO FURSUITS
+                                    </span>
+                                    }
+                                    @if (item.RSVPRequired)
+                                    {
+                                    <span class="inews-sticky font-lato" style="left:216px !important; background-color: green">
+                                        <i class="fa fa-mail-forward"></i>
+                                        RSVP REQUIRED
+                                    </span>
+                                    }
+                                    
+                                    @if (item.Photo != null)
+                                    {
+                                    <img class="img-fluid" src="~/images/events/@item.Photo" alt="image">
+                                    }
+                                    else
+                                    {
+                                    <img class="img-fluid" src="demo_files/images/thematics/music/a1-min.jpg" alt="image">
+                                    }
+                                </a>
+
+                                <div class="inews-item-content">
+
+                                    @*<div class="inews-date-wrapper">
+                                        <span class="inews-date-day">01</span>
+                                        <span class="inews-date-month">January</span>
+                                        <span class="inews-date-year">2019</span>
+                                    </div>*@
+
+                                    <div class="inews-content-inner">
+
+                                        <h3 class="fs-20"><a href="#">@item.Title</a></h3>
+                                        <ul class="blog-post-info list-inline b-0 mb-20 p-0">
+                                            @*<li>
+                                                <a href="page-profile.html">
+                                                    <i class="fa fa-user"></i>
+                                                    <span class="font-lato">Run by (TODO) @String.Join(",", item.Organizers.Select(x => x.CrewMember.Name))</span>
+                                                </a>
+                                            </li>*@
+                                            <li>
+                                                <i class="fa fa-folder-open-o"></i>
+                                                @if (item.Tags != null)
+                                                {
+                                                    @foreach (var tag in item.Tags.Split(','))
+                                                    {
+                                                        <a class="category" href="#?tag=@tag.Trim()">
+                                                            <span class="font-lato">@tag.Trim()</span>
+                                                        </a>
+                                                    }
+                                                }
+                                            </li>
+                                        </ul>
+
+                                        <h4>@item.Description</h4>
+                                        <div class="paragraph" style="color:rgb(155, 155, 155)">
+                                            <strong>When</strong>: @item.Frequency.<br>
+                                            <strong style="color:rgb(155, 155, 155)">Admission Cost:&nbsp;</strong>
+                                            <span style="color:rgb(155, 155, 155)">
+                                                @Html.Raw(item.Cost)
+                                            </span><br>
+                                            <strong style="color:rgb(155, 155, 155)">​Age Requirement:&nbsp;</strong>
+                                            <span style="color:rgb(155, 155, 155)">@item.Age</span><br>
+                                            <strong>Average Attendance</strong>: @item.AvgAttendance.<br>
+                                            <strong>Duration</strong>: @item.Duration<br>
+                                            <strong>Location</strong>: @item.Location<br>
+                                            @if(item.ChatLink != null)
+                                            {
+                                            <strong><a href="@item.ChatLink" target="_blank">Chat Link</a></strong>
+                                            }
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /event item -->
+                    }
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>

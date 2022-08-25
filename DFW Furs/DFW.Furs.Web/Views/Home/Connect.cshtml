@@ -1,0 +1,114 @@
+﻿@{
+    ViewData["Title"] = "Connect";
+}
+
+@model List<DFW.Furs.Models.TgGroup>
+<style>
+    #header.transparent #topMain.nav-pills > li > a {
+        color: black
+    }
+</style>
+<section id="events">
+
+    <div class="section">
+        <div class="container">
+            <!-- RIGHT -->
+            <div id="portfolio" class="col-md-12">
+
+                <h2 class="mb-30">Groups <span class="fs-18">/ Chats to meet others!</span></h2>
+                <ul class="nav nav-pills mb-60 mix-filter">
+                    <li data-filter="all" class="filter active"><a href="#">All</a></li>
+                    @foreach (var t in Model.Where(x => x.Category != null).Select(x => x.Category).Distinct())
+                    {
+                        <li class="filter" data-filter="@t">
+                            <a href="#">@t</a>
+                        </li>
+                    }
+                </ul>
+                <ul class="nav nav-pills mb-60 mix-filter">
+                    <li class="filter" data-filter="pg13">
+                        <a href="#">PG-13</a>
+                    </li>
+                    <li class="filter" data-filter="nsfw">
+                        <a href="#">18+</a>
+                    </li>
+
+                </ul>
+
+
+                <div class="mix-grid col-md-12 mb-12">
+                    <div class="row">
+                        @foreach (var item in Model.OrderBy(x => x.Category).ThenBy(x => x.Name))
+                        {
+                            <!-- event item -->
+
+                            <div class="col-6 col-lg-4 inews-item mix @item.Category @if (item.AllowNSFW) {<text>nsfw</text> } else {<text>pg13</text> } mix_all">
+                                <div class="item-box">
+
+
+                                    <div class="inews-item-content">
+
+                                        @*<div class="inews-date-wrapper">
+                                                <span class="inews-date-day">01</span>
+                                                <span class="inews-date-month">January</span>
+                                                <span class="inews-date-year">2019</span>
+                                            </div>*@
+
+                                        <div class="inews-content-inner">
+
+                                            <h3 class="fs-20">@item.Name</h3>
+                                            @if (!item.AllowNSFW)
+                                            {
+                                                <span class="inews-sticky font-lato" style="background-color:lightgreen">
+                                                    PG-13
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="inews-sticky font-lato" style="background-color:palevioletred">
+
+                                                    18+
+                                                </span>
+                                            }
+                                            <ul class="blog-post-info list-inline b-0 mb-20 p-0">
+                                                <li>
+                                                    @*<a href="page-profile.html">
+                                                            <i class="fa fa-user"></i>
+                                                            <span class="font-lato">Run by (TODO) @String.Join(",", item.Organizers.Select(x => x.CrewMember.Name))</span>
+                                                        </a>*@
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-folder-open-o"></i>
+                                                    @if (item.Category != null)
+                                                    {
+
+
+                                                        <span class="font-lato">@item.Category</span>
+
+
+                                                    }
+                                                </li>
+                                            </ul>
+
+                                            <h4>@item.Description</h4>
+                                            @if (item.Link != null)
+                                            {
+                                                <a href="@item.Link">Link</a>
+                                            }
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /event item -->
+                        }
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

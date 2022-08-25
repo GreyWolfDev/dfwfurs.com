@@ -1,0 +1,577 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<DFW.Furs.Models.Event>
+<!-- REVOLUTION SLIDER -->
+<section id="slider" class="fullwidthbanner-container roundedcorners">
+    <!--
+        Navigation Styles:
+
+            data-navigationStyle="" theme default navigation
+
+            data-navigationStyle="preview1"
+            data-navigationStyle="preview2"
+            data-navigationStyle="preview3"
+            data-navigationStyle="preview4"
+
+        Bottom Shadows
+            data-shadow="1"
+            data-shadow="2"
+            data-shadow="3"
+
+        Slider Height (do not use on fullscreen mode)
+            data-height="300"
+            data-height="350"
+            data-height="400"
+            data-height="450"
+            data-height="500"
+            data-height="550"
+            data-height="600"
+            data-height="650"
+            data-height="700"
+            data-height="750"
+            data-height="800"
+    -->
+    <div class="fullscreenbanner" data-navigationStyle="preview4">
+        <ul class="hide">
+
+            @*<!-- SLIDE  -->
+                <li data-transition="random" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off" data-title="Slide title 1" data-thumb="/images/background-images/936242246.jpg">
+
+                    <img src="/images/background-images/936242246.jpg" data-lazyload="/images/background-images/936242246.jpg" alt="" data-bgfit="cover" data-bgposition="center bottom" data-bgrepeat="no-repeat" />
+
+                    <div class="overlay dark-1"><!-- dark overlay [1 to 9 opacity] --></div>
+
+                    <div class="tp-caption customin ltl tp-resizeme text_white"
+                         data-x="center"
+                         data-y="180"
+                         data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                         data-speed="800"
+                         data-start="1000"
+                         data-easing="easeOutQuad"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.1"
+                         data-endspeed="1000"
+                         data-endeasing="Power4.easeIn" style="z-index: 10;">
+                        <span class="fw-300">COME JOIN THE FUN</span>
+                    </div>
+
+                    <div class="tp-caption customin ltl tp-resizeme large_bold_white"
+                         data-x="center"
+                         data-y="230"
+                         data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                         data-speed="800"
+                         data-start="1200"
+                         data-easing="easeOutQuad"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.1"
+                         data-endspeed="1000"
+                         data-endeasing="Power4.easeIn" style="z-index: 10;">
+                        WELCOME TO SMARTY
+                    </div>
+
+                    <div class="tp-caption customin ltl tp-resizeme small_light_white"
+                         data-x="center"
+                         data-y="350"
+                         data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                         data-speed="800"
+                         data-start="1400"
+                         data-easing="easeOutQuad"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.1"
+                         data-endspeed="1000"
+                         data-endeasing="Power4.easeIn" style="z-index: 10; width: 750px; max-width: 750px; white-space: normal; text-align:center;">
+                        Fabulas definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii propriae philosophia cu mea.
+                    </div>
+
+                    <div class="tp-caption customin ltl tp-resizeme"
+                         data-x="center"
+                         data-y="438"
+                         data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                         data-speed="800"
+                         data-start="1550"
+                         data-easing="easeOutQuad"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.1"
+                         data-endspeed="1000"
+                         data-endeasing="Power4.easeIn" style="z-index: 10;">
+                        <a href="#purchase" class="btn btn-default btn-lg">
+                            <span>Purchase Smarty Now</span>
+                        </a>
+                    </div>
+
+                </li>*@
+
+            @*<!-- SLIDE -->
+                <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off" data-title="Slide title 2" data-thumb="demo_files/images/video/neuron_thumb.jpg">
+
+                    <img src="assets/images/_smarty/1x1.png" data-lazyload="demo_files/images/video/neuron.jpg" alt="video" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+                    <div class="tp-caption tp-fade fadeout fullscreenvideo"
+                         data-x="0"
+                         data-y="0"
+                         data-speed="1000"
+                         data-start="1100"
+                         data-easing="Power4.easeOut"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.1"
+                         data-endspeed="1500"
+                         data-endeasing="Power4.easeIn"
+                         data-autoplay="true"
+                         data-autoplayonlyfirsttime="false"
+                         data-nextslideatend="true"
+                         data-volume="mute"
+                         data-forceCover="1"
+                         data-aspectratio="16:9"
+                         data-forcerewind="on" style="z-index: 2;">
+
+                        <div class="overlay dark-4"><!-- dark overlay [1 to 9 opacity] --></div>
+
+                        <video class="fullvideo" preload="none" poster="demo_files/images/video/neuron.jpg">
+                            <source src="demo_files/images/video/neuron.webm" type="video/webm" />
+                            <source src="demo_files/images/video/neuron.mp4" type="video/mp4" />
+                        </video>
+
+                    </div>
+
+                    <div class="tp-caption customin ltl tp-resizeme text_white"
+                         data-x="center"
+                         data-y="180"
+                         data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                         data-speed="800"
+                         data-start="1000"
+                         data-easing="easeOutQuad"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.1"
+                         data-endspeed="1000"
+                         data-endeasing="Power4.easeIn" style="z-index: 3;">
+                        <span class="fw-300">YOUR FAVORITE MULTIPURPOSE TEMPLATE</span>
+                    </div>
+
+                    <div class="tp-caption customin ltl tp-resizeme large_bold_white"
+                         data-x="center"
+                         data-y="230"
+                         data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                         data-speed="800"
+                         data-start="1200"
+                         data-easing="easeOutQuad"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.1"
+                         data-endspeed="1000"
+                         data-endeasing="Power4.easeIn" style="z-index: 3;">
+                        WELCOME TO SMARTY
+                    </div>
+
+                    <div class="tp-caption customin ltl tp-resizeme small_light_white"
+                         data-x="center"
+                         data-y="350"
+                         data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                         data-speed="800"
+                         data-start="1400"
+                         data-easing="easeOutQuad"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.1"
+                         data-endspeed="1000"
+                         data-endeasing="Power4.easeIn" style="z-index: 3; width: 750px; max-width: 750px; white-space: normal; text-align:center;">
+                        Fabulas definitiones ei pri per recteque hendrerit scriptorem in errem scribentur mel fastidii propriae philosophia cu mea.
+                    </div>
+
+                    <div class="tp-caption customin ltl tp-resizeme"
+                         data-x="center"
+                         data-y="438"
+                         data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                         data-speed="800"
+                         data-start="1550"
+                         data-easing="easeOutQuad"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.1"
+                         data-endspeed="1000"
+                         data-endeasing="Power4.easeIn" style="z-index: 3;">
+                        <a href="#purchase" class="btn btn-default btn-lg">
+                            <span>Purchase Smarty Now</span>
+                        </a>
+                    </div>
+
+                </li>*@
+
+            <!-- SLIDE  -->
+            <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off" data-title="Slide title 3" data-thumb="/images/background-images/936242246.jpg">
+
+                <img src="/images/background-images/936242246.jpg" data-lazyload="/images/background-images/936242246.jpg" alt="" data-bgfit="cover" data-bgposition="center bottom" data-bgrepeat="no-repeat" />
+
+                <div class="overlay dark-4"><!-- dark overlay [1 to 9 opacity] --></div>
+
+                <div class="tp-caption very_large_text lfb ltt tp-resizeme round-font"
+                     data-x="center"
+                     data-y="center"
+                     data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                     data-speed="800"
+                     data-start="1000"
+                     data-easing="easeOutQuad"
+                     data-splitin="none"
+                     data-splitout="none"
+                     data-elementdelay="0.01"
+                     data-endelementdelay="0.1"
+                     data-endspeed="1000"
+                     data-endeasing="Power4.easeIn" style="z-index: 10;">
+                    <span class="fw-700">COME JOIN THE FUN</span>
+                </div>
+
+                @*<div class="tp-caption medium_light_white lfb ltt tp-resizeme"
+                           data-x="right" data-hoffset="-100"
+                           data-y="center" data-voffset="10"
+                           data-speed="600"
+                           data-start="900"
+                           data-easing="Power4.easeOut"
+                           data-splitin="none"
+                           data-splitout="none"
+                           data-elementdelay="0.01"
+                           data-endelementdelay="0.1"
+                           data-endspeed="500"
+                           data-endeasing="Power4.easeIn">
+                        Happiness is an accident of nature,<br />
+                        a beautiful and flawless aberration.<br />
+                        <span style="font-size:24px;font-weight:400;">&ndash; Pat Conroy</span>
+                    </div>*@
+
+            </li>
+
+        </ul>
+    </div>
+
+
+</section>
+<!-- /REVOLUTION SLIDER -->
+<!-- Connect to the community-->
+<section id="connect">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="heading-title heading-border-bottom round-font" style="font-size: 60px !important">
+
+                    CONNECT TO THE COMMUNITY
+                </div>
+
+                <p style="color: #9b9b9b !important">Numerous Telegram groups exist for our local community covering a multitude of different topics - ranging from specific meet chats, general chats, and even fitness! Chances are - there's a group for you!</p>
+                <br />
+                <a asp-area="" asp-controller="Home" asp-action="Connect" class="btn btn-default btn-bordered btn-shadow-1">
+
+                    <i class="icon-paperplane"></i>
+                    <span>CHAT WITH US</span>
+                </a>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+
+                <div>
+                    <img class="img-fluid" src="~/images/editor/26287413119-2b57e7d182-k.jpg" alt="">
+                    Photo by DJ Higuma
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Connect to the community-->
+<style>
+    .img-50 {
+        max-width: 50%;
+    }
+</style>
+<!-- Meet new friends -->
+<section id="meet">
+    <div class="container">
+        <article class="row">
+            <div class="col-md-6">
+                <div class="owl-carousel buttons-autohide controlls-over" data-plugin-options='{"singleItem": true, "autoPlay": true, "navigation": true, "pagination": true, "transitionStyle":"fadeUp"}'>
+                    <div>
+                        <img class="img-fluid img-50" src="~/images/24123373937-4f0b2c202e-k_orig.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="img-fluid img-50" src="~/images/24805469348-23fad1fc01-k_orig.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="img-fluid img-50" src="~/images/37994476125-49b478b7b4-k_orig.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="img-fluid img-50" src="~/images/38271746094-86b02eddd9-k_orig.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h1 style="font-size: 80px !important; line-height: 78px !important; font-family: 'Montserrat' !important; font-weight: 700;">MEET NEW FRIENDS</h1>
+                <p style="font-size: 18px !important; line-height: 32px !important; font-family: 'Montserrat' !important; font-weight: 500;">The DFW area has a meet nearly every week of the month. Regularly scheduled outings include cook outs at local parks, playing games at an arcade, and trips to a bowling alley. Special meets are also scheduled on a regular basis including trips to the local zoos, skating rinks, and movie nights.</p>
+                <a asp-area="" asp-controller="Events" asp-action="Calendar" class="btn btn-default btn-bordered btn-shadow-1">
+
+                    <i class="icon-meetup"></i>
+                    <span>JOIN US</span>
+                </a>
+            </div>
+        </article>
+    </div>
+
+</section>
+<!-- /Meet new friends -->
+<!--<section id="admins">
+    <div class="container">
+        <p class="lead" style="text-align: center; font-weight: 700; font-size: xx-large; font-family: 'Montserrat' !important;">
+            MEET THE WEBSITE ADMINS
+        </p>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+
+                <div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center" style="min-height: 443.328px;">
+                    <div class="front">
+                        <div class="box1 box-default" style="min-height: 300px;">
+                            <div class="box-icon-title">
+                                <img class="img-fluid img-50" src="~/images/imageedit-3-9281142577_orig.gif" alt="">
+                                <h2>Bales</h2>-->
+@*<small>CEO</small>*@
+<!--</div>
+    </div>
+</div>
+
+<div class="back">
+    <div class="box2 box-primary" style="min-height: 300px;">
+        <h4 class="m-0">Bales</h4>-->
+@*<small>CEO</small>*@
+
+<!--<hr>
+
+<p>A simple bear that does bear things, Bales, is a conservationist, wildlife educator, community organizer and TFF staffer. Spending more time in nature than inside a cave he is always trying to improve the prairies and woodlands around Weatherford and DFW. An avid volunteer with both wildlife rehabilitators and local scientific societies he splits his time educating with building the yearly themes for TFF.</p>
+
+<hr>-->
+@*<a href="#" class="social-icon social-icon-sm social-facebook">
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-facebook"></i>
+    </a>*@
+<!--<a href="https://twitter.com/BalesUrsine" target="_blank" class="social-icon social-icon-sm social-twitter">
+    <i class="fa fa-twitter"></i>
+    <i class="fa fa-twitter"></i>
+</a>-->
+@*<a href="#" class="social-icon social-icon-sm social-google">
+        <i class="fa fa-google-plus"></i>
+        <i class="fa fa-google-plus"></i>
+    </a>
+    <a href="#" class="social-icon social-icon-sm social-linkedin">
+        <i class="fa fa-linkedin"></i>
+        <i class="fa fa-linkedin"></i>
+    </a>*@
+
+<!--<hr>-->
+@*<a href="page-about-me-2.html" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>*@
+<!--</div>
+        </div>
+    </div>
+
+</div>
+<div class="col-md-6 col-sm-6">
+
+    <div class="box-flip box-color box-icon box-icon-center box-icon-round box-icon-large text-center" style="min-height: 443.328px;">
+        <div class="front">
+            <div class="box1 box-default" style="min-height: 300px;">
+                <div class="box-icon-title">
+                    <img class="img-fluid img-50" src="~/images/imageedit-6-3399609223_orig.gif" alt="">
+                    <h2>Dr. Wildlife</h2>-->
+@*<small>CEO</small>*@
+<!--</div>
+    </div>
+</div>
+
+<div class="back">
+    <div class="box2 box-primary" style="min-height: 300px;">
+        <h4 class="m-0">Dr. Wildlife</h4>-->
+@*<small>CEO</small>*@
+
+<!--<hr>
+
+<p>Dr. Wildlife, often referred to simply as "Doc", is a conservation biologist who has been living in the Dallas area since 2014. Despite being relatively new to the fandom, she founded and continues to organize the monthly furcade meet. Doc is also an avid volunteer with local children and animal-focused charities around the world. Her love of animals is only surpassed by her dedication to the local fur community. </p>
+
+<hr>-->
+@*<a href="#" class="social-icon social-icon-sm social-facebook">
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-facebook"></i>
+    </a>*@
+<!--<a href="https://www.twitter.com/drwildlife" target="_blank" class="social-icon social-icon-sm social-twitter">
+    <i class="fa fa-twitter"></i>
+    <i class="fa fa-twitter"></i>
+</a>-->
+@*<a href="#" class="social-icon social-icon-sm social-google">
+        <i class="fa fa-google-plus"></i>
+        <i class="fa fa-google-plus"></i>
+    </a>
+    <a href="#" class="social-icon social-icon-sm social-linkedin">
+        <i class="fa fa-linkedin"></i>
+        <i class="fa fa-linkedin"></i>
+    </a>*@
+
+<!--<hr>-->
+@*<a href="page-about-me-2.html" class="btn btn-translucid btn-lg btn-block">VIEW PROFILE</a>*@
+<!--</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>-->
+<!-- news -->
+<!--<section id="news">
+    <div class="container">
+
+        <div class="row">-->
+<!--TODO: make this an ajax request, add models, database -->
+<!-- RIGHT -->
+<div class="col-lg-offset-1 col-lg-8 col-md-9 col-sm-9 order-lg-2 order-md-2 order-sm-2" id="events">
+
+    <h2>Upcoming Events</h2>
+
+    @*<img src="~/images/Clean your Beans 2k jpg.jpg" style="max-width: 100%;" />
+    <p style="font-size: 18px !important; line-height: 32px !important; font-family: 'Montserrat' !important; font-weight: 500;">
+        Due to the continued and increased risk from the pandemic, all meets will be cancelled until further notice. We will be reviewing this on a monthly basis and will update you all when it is safe for us to see each other again. For now, please keep an eye on <a href="https://t.me/DFWevents" target="_blank">our channel</a> as well as our <a href="https://discord.gg/S8VNHdW" target="_blank">Discord</a> for virtual meet information. You can also follow
+        <a href="https://twitter.com/dfw_vrfurs" target="_blank">dfw_vrfurs Twitter</a>
+        for updates on VRChat meets for our area.
+    </p>*@
+
+    @foreach (var item in Model)
+    {
+        //news item 
+        <div class="inews-item">
+            <a class="inews-thumbnail" href="#">
+                @if (item.Description.FursuitFriendly)
+                {
+                    <span class="inews-sticky font-lato">
+                        <i class="fa fa-child"></i>
+                        FURSUIT FRIENDLY
+                    </span>
+                }
+                else
+                {
+                    <span class="inews-sticky font-lato" style="background-color:red">
+                        <i class="fa fa-frown-o"></i>
+                        NO FURSUITS
+                    </span>
+                }
+                @if (item.Description.Photo != null)
+                {
+                    <img class="img-fluid" src="~/images/events/@item.Description.Photo" alt="image">
+                }
+                else
+                {
+                    <img class="img-fluid" src="demo_files/images/thematics/music/a1-min.jpg" alt="image">
+                }
+            </a>
+            <div class="inews-item-content">
+
+                <div class="inews-date-wrapper" style="width: 73px !important">
+                    <span class="inews-date-day">@item.TimeStamp.Day</span>
+                    <span class="inews-date-month">@item.TimeStamp.ToString("MMM")</span>
+                    <span class="inews-date-year">@item.TimeStamp.Year</span>
+                    
+                </div>
+
+                <div class="inews-content-inner">
+
+                    <h3 class="fs-20">@item.Description.Title</h3>
+                    <ul class="blog-post-info list-inline b-0 mb-20 p-0">
+                        <li>
+                            <!--<a href="page-profile.html">
+                                <i class="fa fa-user"></i>-->
+                                @*<span class="font-lato">Run by (TODO) @String.Join(",", item.Description.Organizers.Select(x => x.CrewMember.Name))</span>*@
+                            <!--</a>-->
+                        </li>
+                        <li>
+                            <i class="fa fa-folder-open-o"></i>
+                            @if (item.Description.Tags != null)
+                            {
+                                @foreach (var tag in item.Description.Tags.Split(','))
+                                {
+                                    <a class="category" href="#?tag=@tag.Trim()">
+                                        <span class="font-lato">@tag.Trim()</span>
+                                    </a>
+                                }
+                            }
+                        </li>
+                    </ul>
+
+                    <h4>@item.Description.Description</h4>
+                    <div class="paragraph" style="color:rgb(155, 155, 155)">
+                        <strong style="color:rgb(155, 155, 155)">Admission Cost:&nbsp;</strong>
+                        <span style="color:rgb(155, 155, 155)">
+                            @Html.Raw(item.Description.Cost)
+                        </span><br>
+                        <strong style="color:rgb(155, 155, 155)">​Age Requirement:&nbsp;</strong>
+                        <span style="color:rgb(155, 155, 155)">@item.Description.Age</span><br>
+                        <strong>Average Attendance</strong>: @item.Description.AvgAttendance.<br>
+                        <strong>Duration</strong>: @item.Description.Duration<br>
+                        <strong>Location</strong>: @item.Description.Location
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        ///news item 
+
+
+    }
+
+</div>
+@*LEFT*@ 
+<div class="col-lg-3 col-md-3 col-sm-3 order-lg-1 order-md-1 order-sm-1">
+                <h3 class="mt-8">Telegram Feed</h3>
+                <ul class="widget-twitter mb-20" id="telegram"></ul>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<script>
+    //TODO: Move to .js file
+    $(document).ready(function () {
+        //load telegram posts
+        $.getJSON("/api/Telegram?channel=DFWEvents&total=3", function (data) {
+            $.each(data, function (i, post) {
+                var html = createBlock(post);
+                $("#telegram").append(html);
+            });
+        });
+
+
+    });
+
+    function createBlock(post) {
+        var result =
+            '<li>' +
+            '<i class="fa fa-telegram"></i><span>';
+        if (post.postImage !== null) {
+            result += '<img src="' + post.postImage + '" style="width:100%" />';
+        }
+        result += post.text;
+        result += '</span><small><a href="https://t.me/s/' + post.id + '" target="_blank">' + new Date(post.timestamp).toLocaleString() + '</a></small>';
+        result += '</li>';
+        return result;
+    };
+</script>
+<!-- /news -->
