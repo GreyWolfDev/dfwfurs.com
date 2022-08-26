@@ -26,10 +26,10 @@ namespace DFW.Furs.Web.Controllers
 
         public IActionResult Descriptions()
         {
-            var events = _context.EventDescriptions.ToList();
+            var events = _context.EventDescriptions.Where(x => x.Active).OrderBy(x => x.Title).ToList();
             var tags = events.Where(x => x.Tags != null).SelectMany(x => x.Tags.Split(",")).Select(x => x.Trim()).Distinct();
             ViewData["tags"] = tags;
-            return View(_context.EventDescriptions.ToList());
+            return View(events);
         }
 
         public async Task<IActionResult> Description(int id)

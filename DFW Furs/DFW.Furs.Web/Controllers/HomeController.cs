@@ -21,7 +21,7 @@ namespace DFW.Furs.Web.Controllers
         public IActionResult Index()
         {
             var today = DateTime.Now.Date;
-            return View(_context.Events.Include("Description").Where(x => x.TimeStamp.Date >= today).OrderBy(x => x.TimeStamp).Take(5).ToList());
+            return View(_context.Events.Include("Description").Where(x => x.TimeStamp.Date >= today && x.Description.Active).OrderBy(x => x.TimeStamp).Take(5).ToList());
         }
 
         public IActionResult About()

@@ -19,6 +19,7 @@ namespace DFW.Furs.Web.Controllers
         }
         public IActionResult Index()
         {
+            //TODO add authentication
             List<TgUserAuth> response = new List<TgUserAuth>();
             if (HttpContext.Session.GetInt32("TelegramId") != null)
             {

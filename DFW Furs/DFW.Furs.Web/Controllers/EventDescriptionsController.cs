@@ -24,7 +24,7 @@ namespace DFW.Furs.Web.Controllers
         // GET: EventDescriptions
         public async Task<IActionResult> Index()
         {
-            return View(await _context.EventDescriptions.ToListAsync());
+            return View(await _context.EventDescriptions.OrderBy(x => x.Title).ToListAsync());
         }
 
         // GET: EventDescriptions/Details/5

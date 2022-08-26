@@ -28,6 +28,7 @@ namespace DFW.Furs.Models
         public bool NoMinors { get; set; }
         public string ChatLink { get; set; }
         public bool RSVPRequired { get; set; }
+        public bool Active { get; set; }
         public virtual ICollection<EventOrganizer> Organizers { get; set; }
         [InverseProperty("Description")]
 
