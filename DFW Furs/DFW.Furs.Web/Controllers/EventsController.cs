@@ -26,7 +26,9 @@ namespace DFW.Furs.Web.Controllers
 
         public IActionResult Descriptions()
         {
-            var events = _context.EventDescriptions.Where(x => x.Active).OrderBy(x => x.Title).ToList();
+            //var a = _context.EventDescriptions.First();
+            //var b = a.Organizers.First().CrewMember.TelegramUser.UserName;
+            var events = _context.EventDescriptions.Include(x => x.Organizers).ThenInclude(x => x.CrewMember).ThenInclude(x => x.TelegramUser).Where(x => x.Active).OrderBy(x => x.Title).ToList();
             var tags = events.Where(x => x.Tags != null).SelectMany(x => x.Tags.Split(",")).Select(x => x.Trim()).Distinct();
             ViewData["tags"] = tags;
             return View(events);
